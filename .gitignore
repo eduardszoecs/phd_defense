@@ -17,13 +17,10 @@
 *.tmb
 *.nav
 *.snm
-
-
-# tikz
 *.dpth
 *.md5
 *.run.xml
-tikz/*
+*.pdfpc
 
 # Sublime
 *.sublime-project

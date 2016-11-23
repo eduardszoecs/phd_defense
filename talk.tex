@@ -1,13 +1,16 @@
 % -*- program: xelatex -*-
 
 \documentclass[10pt
-]{beamer}
+	]{beamer}
 
 % -----------------------------------------------------------------------------
+% theming
 \usetheme[numbering=fraction,
-progressbar=frametitle,
-% background=dark
-]{metropolis}
+	progressbar=frametitle,
+	% background=dark
+	]{metropolis}
+
+
 % % use a heavier font for large room/underpowered projector
 % \setsansfont[BoldFont={Fira Sans SemiBold}]{Fira Sans Book}
 
@@ -25,14 +28,23 @@ progressbar=frametitle,
 % \setbeamercolor{progress bar in section page}{...}
 
 % -----------------------------------------------------------------------------
-\usepackage{appendixnumberbeamer}  % do not count appendix slides, use \appendix to indicate 
+% do not count appendix slides, use \appendix to indicate 
+\usepackage{appendixnumberbeamer}  
 % creative commons icons
-\usepackage[scale=2]{ccicons} 
+\usepackage[scale=2
+	]{ccicons} 
 % fontawesome font/icons
 \usepackage{fontspec}
 \usepackage{fontawesome}      %
 % Graphics4
 \usepackage{graphicx}
+
+% use speaker notes
+\usepackage{pgfpages}
+%\setbeameroption{hide notes} % Only slides
+%\setbeameroption{show only notes} % Only notes
+\setbeameroption{show notes on second screen=right} % Both
+
 
 
 
@@ -61,6 +73,19 @@ progressbar=frametitle,
 
 %%% ---------------------------------------------------------------------------
 \section{Improving Statistics in ERA}
+
+% \begin{frame}
+% \frametitle{test}
+% 	\begin{itemize}
+% 		\item<1-> Eggs
+% 		\item<2-> Plants
+% 		\note[item]<2>{Tell joke about plants.}
+% 		\note[item]<2>{Make it short.}
+% 		\item<3-> Animal
+% 	\end{itemize}
+% \end{frame}
+% % this will be on a separate note:
+% \note[enumerate]{\item foo \item bar \item baz \item foobar}
 
 \begin{frame}
 \frametitle{Ecotoxicology is not normal}
