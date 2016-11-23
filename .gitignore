@@ -1,0 +1,34 @@
+# Latex
+*.aux
+*.auxlock
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.synctex.gz*
+*.lot
+*.lof
+*.toc
+*.bcf
+*.out
+*.run.xml
+*.tmb
+*.nav
+*.snm
+
+
+# tikz
+*.dpth
+*.md5
+*.run.xml
+tikz/*
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+*.todo
+
+ 
+.directory
