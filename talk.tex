@@ -21,11 +21,21 @@
 % \usefonttheme{metropolis}
 
 % % or set colors by hand
+\definecolor{myblue}{rgb}{0.008, 0.302, 0.357}
+\setbeamercolor{frametitle}{bg=myblue}
 % \setbeamercolor{...}{fg=...,bg=...}
 % \setbeamercolor{progress bar}{...}
 % \setbeamercolor{title separator}{...}
 % \setbeamercolor{progress bar in head/foot}{...}
 % \setbeamercolor{progress bar in section page}{...}
+
+% change width of title separator, section page separator % progress
+%https://github.com/matze/mtheme/issues/237
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{1pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1.5pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{1.5pt}
+\makeatother
 
 % -----------------------------------------------------------------------------
 % do not count appendix slides, use \appendix to indicate 
@@ -36,14 +46,18 @@
 % fontawesome font/icons
 \usepackage{fontspec}
 \usepackage{fontawesome}      %
-% Graphics4
+\usepackage{pifont}
+% Graphics
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning, calc, arrows.meta}
+\usepackage{adjustbox}
 
 % use speaker notes
 \usepackage{pgfpages}
-%\setbeameroption{hide notes} % Only slides
+\setbeameroption{hide notes} % Only slides
 %\setbeameroption{show only notes} % Only notes
-\setbeameroption{show notes on second screen=right} % Both
+% \setbeameroption{show notes on second screen=right} % Both
 
 
 
@@ -68,7 +82,14 @@
 \end{frame}
 
 %%% ---------------------------------------------------------------------------
-\section{Environmental Risk Assessment (ERA)}
+\section{Environmental Risk Assessment and Monitoring}
+
+\begin{frame}
+\frametitle{Environmental Risk Assessment and Monitoring}
+ \resizebox{11.5cm}{!}{%
+				\input{figs/tikz/overview.tikz}
+				}
+\end{frame}
 
 
 %%% ---------------------------------------------------------------------------
@@ -95,7 +116,7 @@
 
 
 \begin{frame}
-\frametitle{A history of GLM (uncomprehensive)}
+\frametitle{A brief history of GLM (uncomprehensive)}
 
 \end{frame}
 
@@ -165,28 +186,93 @@
 
 \begin{frame}
 \frametitle{Biologists \& Chemists face the same problems}
+	\small
+	\centering
+	\textbf{\alert{Names}}
+	\begin{columns}[t]
+	\column{.45\textwidth}
+	\emph{Osmia rufa, Osmia bicornis, Osmia ruffa, Osmia unilandauis, Osmia spec.} 
+	\column{.45\textwidth}
+	Chlorpyrifos, Chlorpyriphos, Chlorphyrifos, Chlorpyrifos-ethyl, Chlorpypifot
+	\end{columns}
+	\pause
 
+	\centering
+	\textbf{\alert{Hierarchies}}
+	\begin{columns}[t]
+	\column{.45\textwidth}
+	Hymenoptera/ Apoidea/ Megachilidae/ Osmia/ rufa 
+	\column{.45\textwidth}
+	organophospate, ester, insecticide
+	\end{columns}
+	\pause
+
+	\centering
+	\textbf{\alert{Traits / Properties}}
+	\begin{columns}[t]
+	\column{.45\textwidth}
+	Wing length, Mass, Season 
+	\column{.45\textwidth}
+	Mass, $K_{OW}$, $LC_{50}$
+	\end{columns}
+	\pause
+
+	\centering
+	\textbf{\alert{Identifiers}}
+	\begin{columns}[t]
+	\column{.45\textwidth}
+	NCBI, ITIS, EOL, ... 
+	\column{.45\textwidth}
+	2921-88-2, Clc1c(OP(=S)[...], InChI=1S/C9H11C[...], SBPBAQFW[...], CSID,...
+	\end{columns}
+	\vspace{0.8em}
+	\pause
+
+	\rule{\textwidth}{1pt}
+	\textbf{\alert{Amount of data}}
+
+	\begin{columns}[t]
+	\column{.45\textwidth}
+	\centering
+	2993 taxa
+	\column{.45\textwidth}
+	\centering
+	489 pesticides \\ (+ 590 other organics)
+	\end{columns}
 \end{frame}
 
 
+{%
+\setbeamertemplate{frame footer}{Münch et al. (2016). DoOR 2.0 - Comprehensive Mapping of Droso-phila melanogaster Odorant Responses. Scientific Reports 6, 21841
+}
+\begin{frame}{}
+\frametitle{Instead of wasting time...}
+... use \alert{webchem}! \\
+	\hspace*{-2cm}
+	\begin{adjustbox}{max totalsize={1.1\textwidth}{1.1\textheight}}
+				\input{figs/tikz/webchem.tikz}
+	\end{adjustbox}
+
+\vspace*{-1cm}\emph{''\alert{webchem} ...likely saved hundreds of working hours''}
+\end{frame}
+}
+
+
+{%
+\setbeamertemplate{frame footer}{Dr. Susan E. Johnston, University of Edinburgh. On twitter.
+}
 \begin{frame}
 \frametitle{Instead of wasting time...}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{webchem}
+... use \alert{taxize!} \\
+	\hspace*{-2cm}
 	\begin{center}
-	\includegraphics[width =.7\textwidth]{figs/sources_webchem.pdf} \\
+	\includegraphics[height=0.6\textheight]{figs/sources_taxize.png}
 	\end{center}
 
+\emph{''Days of searching done during my morning coffee. Amazing. \alert{taxize}.''}
 \end{frame}
+}
 
-
-\begin{frame}
-\frametitle{Instead of wasting time...}
-
-\end{frame}
 
 
 %%% ---------------------------------------------------------------------------
@@ -195,16 +281,30 @@
 \begin{frame}
 \frametitle{What we learned}
 	\metroset{block=fill}
-	\begin{exampleblock}{Improving Statistics in ERA}
-		\textbf{Block content.}
+	\begin{exampleblock}{\checkmark Improving Statistics in ERA}
+		\begin{itemize}
+			\item Change your model, not your data
+			\item Ultimately ban NOEC
+			\item Take LOQ into account
+		\end{itemize}
 	\end{exampleblock}
 
-	\begin{exampleblock}{Exploring Monitoring Data for ERA}
-		\textbf{Block content.}
+\pause
+	\begin{exampleblock}{\checkmark Exploring Monitoring Data for ERA}
+		\begin{itemize}
+			\item Pesticide Dynamics
+			\item Agricultural small streams at risk
+			\item Neonicotinoids
+			\item feedback for ERA
+		\end{itemize}
 	\end{exampleblock}
 
-	\begin{exampleblock}{Solutions for Linking Data in ERA}
-		\textbf{Use my R packages to save your time!}
+\pause
+	\begin{exampleblock}{\checkmark Solutions for Linking Data in ERA}
+		\begin{itemize}
+			\item Handling big eco(toxico-)logical data not easy
+			\item now easier
+		\end{itemize}
 	\end{exampleblock}
 
 
