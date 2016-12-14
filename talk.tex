@@ -21,13 +21,21 @@
 % \usefonttheme{metropolis}
 
 % % or set colors by hand
-\definecolor{myblue}{rgb}{0.008, 0.302, 0.357}
+\definecolor{myblue}{rgb}{0.137, 0.251, 0.627}
+\definecolor{myalert}{rgb}{0.922, 0.482, 0.078}
+
+% change header color
 \setbeamercolor{frametitle}{bg=myblue}
 % \setbeamercolor{...}{fg=...,bg=...}
 % \setbeamercolor{progress bar}{...}
 % \setbeamercolor{title separator}{...}
 % \setbeamercolor{progress bar in head/foot}{...}
 % \setbeamercolor{progress bar in section page}{...}
+
+% slightly darker organce
+\setbeamercolor{alerted text}{fg=myalert}
+
+
 
 % change width of title separator, section page separator % progress
 %https://github.com/matze/mtheme/issues/237
@@ -36,6 +44,17 @@
 \setlength{\metropolis@progressonsectionpage@linewidth}{1.5pt}
 \setlength{\metropolis@progressinheadfoot@linewidth}{1.5pt}
 \makeatother
+
+
+% environment for alerts (=colored bullet)
+% http://tex.stackexchange.com/questions/14319/beamer-change-individual-bullet-color-in-itemize-list
+\newenvironment{aleenv}{\only{\setbeamercolor{local structure}{fg=myalert}}}{}
+
+% Put graphic anywhere on slide using Put(x, y){}
+% with x, y in pt
+% http://tex.stackexchange.com/questions/34921/how-to-overlap-images-in-a-beamer-slide
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
+
 
 % -----------------------------------------------------------------------------
 % do not count appendix slides, use \appendix to indicate 
@@ -50,7 +69,7 @@
 % Graphics
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{shapes, arrows, positioning, calc, arrows.meta}
+\usetikzlibrary{shapes, arrows, positioning, calc, arrows.meta, snakes}
 \usepackage{adjustbox}
 
 % use speaker notes
@@ -81,8 +100,41 @@
   \tableofcontents[hideallsubsections]
 \end{frame}
 
+
 %%% ---------------------------------------------------------------------------
-\section{Environmental Risk Assessment and Monitoring}
+{%
+\setbeamertemplate{frame footer}{WWF (2016), Living Planet Report; Vörösmarty (2010). Nature.
+}
+\begin{frame}[t]
+\frametitle{Freshwater biodiversity is strongly declining}
+	\begin{columns}[T]
+	\column{.66\textwidth}
+		\onslide<1->{
+			\resizebox{\textwidth}{!}{%
+						\input{figs/tikz/lpi.tikz}
+						}
+		}
+	\column{.33\textwidth}
+		\onslide<2->{
+			\vspace{3em} 
+			\alert{\underline{Threats}} \\
+			\begin{itemize}
+				\item Habitat loss
+				\item Overexploitation
+				\only<-2>{\item Pollution}
+				\only<3->{\item<ale@3-> \alert{Pollution}}
+				\item Invasive species
+			\end{itemize}
+		}
+	\end{columns}
+\end{frame}
+}
+
+
+
+%%% ---------------------------------------------------------------------------
+\section[Environmental Risk Assessment and Environmental Monitoring
+]{Environmental Risk Assessment (ERA) and Monitoring}
 
 \begin{frame}
 \frametitle{Environmental Risk Assessment and Monitoring}
@@ -92,33 +144,99 @@
 \end{frame}
 
 
+
 %%% ---------------------------------------------------------------------------
 \section{Improving Statistics in ERA}
 
-% \begin{frame}
-% \frametitle{test}
-% 	\begin{itemize}
-% 		\item<1-> Eggs
-% 		\item<2-> Plants
-% 		\note[item]<2>{Tell joke about plants.}
-% 		\note[item]<2>{Make it short.}
-% 		\item<3-> Animal
-% 	\end{itemize}
-% \end{frame}
-% % this will be on a separate note:
-% \note[enumerate]{\item foo \item bar \item baz \item foobar}
+{%
+\setbeamertemplate{frame footer}{\url{www.umweltbundesamt.de}
+}
+\begin{frame}
+\frametitle{Experiments in Effect Assessment}
+	\begin{columns}[T]
+	\column<1->{.49\textwidth}
+		\includegraphics[width=\textwidth]{figs/daphnia1.png}
+	\column<2->{.49\textwidth}
+		\includegraphics[width=0.9\textwidth]{figs/mesocosm_ld.jpg}
+	\end{columns}
+
+	\vfill
+	\begin{columns}[T]
+	\column<1->{.49\textwidth}
+		\begin{itemize}
+			\item Daphnia Test
+			\item Lower Tier 
+			\item \emph{"x out of n survived"}
+		\end{itemize}
+
+	\column<2->{.49\textwidth}
+		\begin{itemize}
+			\item Mesocosm
+			\item Higher Tier 
+			\item \emph{"number of animals"}
+		\end{itemize}
+	\end{columns}
+\end{frame}
+}%
+
+
 
 \begin{frame}
 \frametitle{Ecotoxicology is not normal}
 
+\begin{columns}[T]
+	\column{.49\textwidth}
+		\center
+		\begin{adjustbox}{max totalsize={0.7\textwidth}{\textheight}}
+					\input{figs/tikz/pb_fin.tikz}
+		\end{adjustbox}
+		\begin{itemize}
+			\item \emph{"x out of n survived"}
+			\onslide<3->{\item<ale@3-> \alert{binomial data}}
+		\end{itemize}
+	\column{.49\textwidth}
+		\center
+		\begin{adjustbox}{max totalsize={0.7\textwidth}{\textheight}}
+					\input{figs/tikz/pp_fin.tikz}
+		\end{adjustbox}
+		\begin{itemize}
+			\item \emph{"number of animals"}
+			\onslide<3->{\item<ale@3-> \alert{count data}}
+		\end{itemize}
+	\end{columns}
+
+	\onslide<2->{
+		\Put(85,50){\begin{adjustbox}{max totalsize={0.9\textwidth}{0.4\textheight}}
+			\input{figs/tikz/pn_fin.tikz}
+		\end{adjustbox}
+		}
+	}
+
+	\vspace*{1cm}
+	\begin{itemize}
+		\item<4-> ignore?
+		\item<5-> transform?
+		\item<6-> non-parametric?
+		\only<7>{\item Generalized Linear Model (GLM)}
+		\only<8->{\item<ale@2-> \alert{Generalized Linear Model (GLM)}}
+	\end{itemize}
+
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{A brief history of GLM (uncomprehensive)}
+\frametitle{A brief history of GLM (uncomprehensive) in ecology}
+	\input{figs/tikz/glm_timeline.tikz}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{A simulation study}
 
 \end{frame}
+
 
 
 \begin{frame}
@@ -128,7 +246,7 @@
 
 
 \begin{frame}
-\frametitle{Generalized Linear Models (GLM) can do better}
+\frametitle{GLM can do better}
 
 \end{frame}
 
@@ -141,15 +259,37 @@
 
 
 \begin{frame}
-\frametitle{Where are we now?}
-
+\frametitle{Where are we today?}
+	\input{figs/tikz/glm_timeline2.tikz}
 \end{frame}
+
+
+{%
+\setbeamertemplate{frame footer}{Warton, D.I., Lyons, M., Stoklosa, J., Ives, A.R., 2016. Three points to consider when choosing a LM or GLM test for count data. Methods in Ecology and Evolution 7, 882–890.
+}
+\begin{frame}
+\frametitle{Where are we today?}
+	% \metroset{block=fill}
+	\begin{exampleblock}{Three points to consider ...}
+		\begin{enumerate}
+			\item Choose your model based on data properties
+			\item Fix Type I errors by resampling
+			\item Models that better fit the data have better power properties
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+}
 
 %%% ---------------------------------------------------------------------------
 \section{Exploring Monitoring Data for ERA}
 
 \begin{frame}
 \frametitle{Environmental Monitoring}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview on data compiled}
 
 \end{frame}
 
@@ -172,6 +312,16 @@
 
 \begin{frame}
 \frametitle{Risks}
+Check: What did go wrong with Neonics during ERA?
+Exposure wromg? Effect wrong (e.g. did not consider sensitive species)?
+=> Quite sure that Effect assessment missed it...
+=> show SSD, highlighting standard test species (from EPA)
+* old guidance document did not enforce insect.
+* new one (from 2013) enforces additional insect data
+
+RAC is landscape dependend (=> exposure?)
+
+Example for power (experimental setup)
 
 \end{frame}
 
@@ -188,7 +338,7 @@
 \frametitle{Biologists \& Chemists face the same problems}
 	\small
 	\centering
-	\textbf{\alert{Names}}
+	\textbf{\alert{\underline{Names}}}
 	\begin{columns}[t]
 	\column{.45\textwidth}
 	\emph{Osmia rufa, Osmia bicornis, Osmia ruffa, Osmia unilandauis, Osmia spec.} 
@@ -198,7 +348,7 @@
 	\pause
 
 	\centering
-	\textbf{\alert{Hierarchies}}
+	\textbf{\alert{\underline{Hierarchies}}}
 	\begin{columns}[t]
 	\column{.45\textwidth}
 	Hymenoptera/ Apoidea/ Megachilidae/ Osmia/ rufa 
@@ -208,7 +358,7 @@
 	\pause
 
 	\centering
-	\textbf{\alert{Traits / Properties}}
+	\textbf{\alert{\underline{Traits / Properties}}}
 	\begin{columns}[t]
 	\column{.45\textwidth}
 	Wing length, Mass, Season 
@@ -218,7 +368,7 @@
 	\pause
 
 	\centering
-	\textbf{\alert{Identifiers}}
+	\textbf{\alert{\underline{Identifiers}}}
 	\begin{columns}[t]
 	\column{.45\textwidth}
 	NCBI, ITIS, EOL, ... 
@@ -229,7 +379,7 @@
 	\pause
 
 	\rule{\textwidth}{1pt}
-	\textbf{\alert{Amount of data}}
+	\textbf{\alert{\underline{Amount of data}}}
 
 	\begin{columns}[t]
 	\column{.45\textwidth}
@@ -354,9 +504,31 @@
 
 \end{frame}
 
+
+\begin{frame}
+\frametitle{RACs by Type}
+	\begin{adjustbox}{max totalsize={\textwidth}{0.95\textheight}}
+				\input{figs/tikz/ap_rac.tikz}
+	\end{adjustbox}
+\end{frame}
+
+\begin{frame}
+\frametitle{RACs by Compound}
+	\begin{adjustbox}{max totalsize={\textwidth}{0.95\textheight}}
+				\input{figs/tikz/ap_rac2.tikz}
+	\end{adjustbox}
+\end{frame}
+
+
+
 \begin{frame}
 \frametitle{Mixtures => mainly one compound}
+TU Grafik
+\end{frame}
 
+\begin{frame}
+\frametitle{Simulation are powerful!}
+Example for desgin of dose-response-models
 \end{frame}
 
 

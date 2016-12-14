@@ -1,0 +1,37 @@
+%\definecolor{myblue}{rgb}{0.137, 0.251, 0.627}
+%\definecolor{myalert}{rgb}{0.922, 0.482, 0.078}
+
+% overlays etc in tikz
+\tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
+
+
+\begin{tikzpicture}[x=1pt,y=1pt]
+\begin{scope}
+% \path[clip] ( 18.58, 40.74) rectangle (428.12,355.85);
+\path[fill=myblue] ( 37.19, 55.07) rectangle ( 71.04,198.30);
+\path[fill=myblue] (104.88, 55.07) rectangle (138.73,341.53);
+\path[fill=myblue] (172.58, 55.07) rectangle (206.42,341.53);
+\path[fill=myblue] (240.27, 55.07) rectangle (274.12,246.04);
+\path[fill=myblue] (307.96, 55.07) rectangle (341.81,150.55);
+\path[fill=myblue] (375.66, 55.07) rectangle (409.50, 93.26);
+\definecolor{drawColor}{RGB}{0,0,0}
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 18.58, 55.07) -- (428.12, 55.07);
+\end{scope}
+\begin{scope}
+\definecolor{drawColor}{gray}{0.30}
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at ( 54.11, 18.58) {0};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (121.81, 18.58) {1};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (189.50, 18.58) {2};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (257.19, 18.58) {3};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (324.89, 18.58) {4};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (392.58, 18.58) {5};
+ \node[text=myalert,anchor=base,inner sep=0pt, outer sep=0pt, scale=  4, font=\bf\Huge, rotate=20,
+visible on=<2->] at (218, 210) {Normal?};
+\end{scope}
+\end{tikzpicture}

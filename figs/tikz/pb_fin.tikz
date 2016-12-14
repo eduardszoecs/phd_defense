@@ -1,0 +1,45 @@
+\definecolor{myblue}{rgb}{0.137, 0.251, 0.627}
+\definecolor{myalert}{rgb}{0.922, 0.482, 0.078}
+
+% overlays etc in tikz
+\tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
+
+\begin{tikzpicture}[x=1pt,y=1pt]
+%\definecolor{fillColor}{RGB}{255,255,255}
+%\path[use as bounding box,fill=fillColor,fill opacity=0.00] (0,0) rectangle (433.62,361.35);
+\begin{scope}
+\path[clip] ( 18.58, 40.74) rectangle (428.12,355.85);
+\path[fill=myblue] ( 37.19, 55.07) rectangle ( 59.09, 55.07);
+\path[fill=myblue] ( 80.99, 55.07) rectangle (102.89, 55.14);
+\path[fill=myblue] (124.79, 55.07) rectangle (146.70, 56.05);
+\path[fill=myblue] (168.60, 55.07) rectangle (190.50, 62.90);
+\path[fill=myblue] (212.40, 55.07) rectangle (234.30, 94.23);
+\path[fill=myblue] (256.20, 55.07) rectangle (278.10,180.39);
+\path[fill=myblue] (300.00, 55.07) rectangle (321.90,305.72);
+\path[fill=myblue] (343.80, 55.07) rectangle (365.70,341.53);
+\path[fill=myblue] (387.60, 55.07) rectangle (409.50,198.30);
+\definecolor{drawColor}{RGB}{0,0,0}
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 18.58, 55.07) -- (428.12, 55.07);
+\end{scope}
+\begin{scope}
+%\path[clip] (  0.00,  0.00) rectangle (433.62,361.35);
+\definecolor{drawColor}{gray}{0.30}
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at ( 48.14, 18.58) {0};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at ( 91.94, 18.58) {1};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (135.74, 18.58) {2};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (179.55, 18.58) {3};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (223.35, 18.58) {4};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (267.15, 18.58) {5};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (310.95, 18.58) {6};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (354.75, 18.58) {7};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (398.55, 18.58) {8};
+ \node[text=myalert,anchor=base,inner sep=0pt, outer sep=0pt, scale=  4, font=\bf\Huge, rotate=20,
+visible on=<2->] at (218, 210) {Normal?};
+\end{scope}
+\end{tikzpicture}
