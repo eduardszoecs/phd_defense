@@ -34,8 +34,14 @@ lpi_plot <- ggplot(lpi) +
   scale_color_manual('Habitat', 
                      values = c('steelblue', 'blue', "green4"),
                      breaks = c("terrestric", "marine", "freshwater"))
+
 ggsave('/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/lpi.tikz',
        lpi_plot, 
        device = tikz,
        width = 5)
+
+ggsave('/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/src/lpi/lpi_2016.pdf',
+       lpi_plot, 
+       width = 7, height = 5)
+
 

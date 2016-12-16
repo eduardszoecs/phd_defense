@@ -21,8 +21,8 @@
 % \usefonttheme{metropolis}
 
 % % or set colors by hand
-\definecolor{myblue}{rgb}{0.137, 0.251, 0.627}
-\definecolor{myalert}{rgb}{0.922, 0.482, 0.078}
+\definecolor{myblue}{rgb}{0.047, 0.298, 0.435}
+\definecolor{myalert}{rgb}{0.847, 0.510, 0.106}
 
 % change header color
 \setbeamercolor{frametitle}{bg=myblue}
@@ -79,6 +79,8 @@
 % \setbeameroption{show notes on second screen=right} % Both
 
 
+% for overview.tikz figure
+\newlength\yearposx
 
 
 %%% ---------------------------------------------------------------------------
@@ -117,7 +119,7 @@
 	\column{.33\textwidth}
 		\onslide<2->{
 			\vspace{3em} 
-			\alert{\underline{Threats}} \\
+			\alert{\underline{Reasons}} \\
 			\begin{itemize}
 				\item Habitat loss
 				\item Overexploitation
@@ -149,7 +151,7 @@
 \section{Improving Statistics in ERA}
 
 {%
-\setbeamertemplate{frame footer}{\url{www.umweltbundesamt.de}
+\setbeamertemplate{frame footer}{Pic: \url{www.umweltbundesamt.de} (modified)
 }
 \begin{frame}
 \frametitle{Experiments in Effect Assessment}
@@ -226,7 +228,7 @@
 
 
 \begin{frame}
-\frametitle{A brief history of GLM (uncomprehensive) in ecology}
+\frametitle{A recent history of GLM (uncomprehensive) in ecology}
 	\input{figs/tikz/glm_timeline.tikz}
 \end{frame}
 
@@ -240,26 +242,38 @@
 
 
 \begin{frame}
-\frametitle{Statistical Power is unacceptably low}
-
+\frametitle{GLMs do not always work}
+	\begin{center}
+		\includegraphics[width=\textwidth]{figs/p_t1_xkcd.pdf}
+	\end{center}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{GLM can do better}
-
+\frametitle{Power is low, GLM can do better}
+	\begin{center}
+	\includegraphics[width = \textwidth]{figs/p_pow_xkcd.pdf}
+	\end{center}
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{What we learned}
-
+\frametitle{What we learned from this study}
+	\metroset{block=fill}
+		\begin{enumerate}
+			\item Negative-binomial GLM show increased Type I errors
+			\item Can be fixed via bootstrap
+			\item Power in ecotoxicological experiments generally low
+			\item NOECs are not reliable
+			\item GLMs can increase this power
+		\end{enumerate}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Where are we today?}
+	\only<1>{Three days earlier...}
 	\input{figs/tikz/glm_timeline2.tikz}
 \end{frame}
 
@@ -444,8 +458,8 @@ Example for power (experimental setup)
 \pause
 	\begin{exampleblock}{\checkmark Exploring Monitoring Data for ERA}
 		\begin{itemize}
-			\item Pesticide Dynamics
-			\item Agricultural small streams at risk
+			\item Risk drivers and dynamics
+			\item Agricultural Small streams at risk \& neglected
 			\item Neonicotinoids
 			\item Feedback for ERA
 		\end{itemize}
@@ -488,20 +502,90 @@ Example for power (experimental setup)
 \appendix
 
 \begin{frame}
-\frametitle{Statistics?}
-
+\frametitle{Power en detail}
+	\begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
+				\input{figs/tikz/ap_t1_g.tikz}
+	\end{adjustbox}
 \end{frame}
+
+
+\begin{frame}
+\frametitle{For LOEC it is even worse}
+	\begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
+				\input{figs/tikz/ap_t1_loec.tikz}
+	\end{adjustbox}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Comparison with Ives...}
+	\begin{columns}
+	    \column{.49\textwidth}
+	    	\underline{Szöcs (2015)}
+	    	\begin{itemize}
+	        	\item factorial design
+	        	\item one predictor
+	        	\item low replicated
+	        	\item LM, GLM, bootstrap
+	        	\item High T1 error of NB
+	        	\item Quasi-Poisson worked well \vspace{1.2em}
+	        	\item Bootstrap fixes the problems
+	        \end{itemize}
+	    \column{.49\textwidth}
+	    	\underline{Ives (2015)}
+	        \begin{itemize}
+	        	\item continuous design
+	        	\item two predictors
+	        	\item well replicated
+	        	\item LM, GLM
+	        	\item High T1 error of NB
+	        	\item Quasi-Poisson has problems with multiple predictors
+	        	\item
+	        \end{itemize}
+	\end{columns}
+\end{frame}
+
 
 
 \begin{frame}
 \frametitle{ZAGA what...?}
+\begin{description}
+	% \item[shiny app: ]{\url{http://139.14.11.23:3838/teaching/zaga/}}
+	\item[shiny app: ]{\url{http://uni-ko-ld.de/g4}}
+\end{description}
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Comparison with Stehle / Knauer?}
-
+\frametitle{Comparison with recent studies}
+\begin{columns}[T]
+%%%! Maybe use table for this (better aligned items)
+	    \column{.33\textwidth}
+	    	\underline{Szöcs (2016)}
+	        	\item Germany
+	        	\item Monitoring
+	        	\item Grab sampling \vspace{1.2em}
+	        	\item %coverage
+	        	\item \% LOQ: 
+	        	\item % substances
+	    \column{.33\textwidth}
+	    	\underline{Stehle (xxx)}
+	        	\item Europe / Global
+	        	\item Scientific Publications
+	        	\item Grab \& Event driven sampling
+	        	\item %coverage
+	        	\item \% LOQ: 
+	        	\item
+	    \column{.33\textwidth}
+	    	\underline{Knauer (xxx)}
+	        	\item Switzerland
+	        	\item Monitoring
+	        	\item Grab sampling \vspace{1.2em}
+	        	\item %coverage
+	        	\item \% LOQ: 
+	        	\item 
+	\end{columns}
 \end{frame}
 
 
@@ -522,21 +606,70 @@ Example for power (experimental setup)
 
 
 \begin{frame}
-\frametitle{Mixtures => mainly one compound}
-TU Grafik
+\frametitle{Mixtures are common, but one compound dominates the risk}
+	\begin{columns}
+	    \column{.59\textwidth}
+	    	\vspace{0.5cm}
+	    	\includegraphics[width=\textwidth, keepaspectratio]{figs/tusum_tumax.pdf}
+	    \column{.40\textwidth}
+	        \begin{itemize}
+	        	\item up to 50 compounds in one sample
+	        	\item high correlation
+	        	\item $\sim$ 0.5 TU increase 
+	        	\item mainly one compound responsible for risk
+	        \end{itemize}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Simulation are powerful!}
-Example for desgin of dose-response-models
+\frametitle{Simulations are worth their work, use them \emph{a priori}!}
+Experimental design for dose-response experiments - a simulation
+\begin{description}
+	\item[webchem]{\url{http://edild.github.io/lc50_bias_sim/}}
+\end{description}
+	    	\includegraphics[width=0.6\textwidth, keepaspectratio]{figs/sim_drm.png}
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{ecology / biota?}
+\frametitle{Reasons for observed RAC exceedances}
+see notes on lecture on 16.12.2016
 
 \end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Biotic field effects}
+	\begin{columns}
+	    \column{.49\textwidth}
+	    	    	\includegraphics[width=\textwidth, keepaspectratio]{figs/mzb_map.png}
+	    \column{.49\textwidth}
+	        \begin{itemize}
+	        	\item biological data with good spatial coverage
+	        	\item 60\% of spatial congruence 
+	        	\item Large scale effects largely unknown.
+	        	\item Some work left...
+	        	\item Future....
+	        \end{itemize}
+	\end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Software}
+\begin{description}
+	\item[webchem]{\url{https://github.com/ropensci/webchem}}
+	\item[taxize]{\url{https://github.com/ropensci/webchem}}
+\end{description}
+
+Stable versions also on CRAN...
+
+\end{frame}
+
 
 
 % ------------------------------

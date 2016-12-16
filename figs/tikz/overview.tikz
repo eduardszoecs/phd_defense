@@ -7,7 +7,6 @@
 \tikzstyle{block} = [rectangle, draw, 
     text width=5em, text centered, rounded corners, minimum height=4em]
 % papers
-\definecolor{myalert}{rgb}{0.922, 0.506, 0.106}
 \tikzstyle{paper} = [circle, draw, fill=myalert,  font = \bf\LARGE, minimum width=1.5cm]
 \tikzstyle{textbf} = [text centered, font = \bf\Large]
 
