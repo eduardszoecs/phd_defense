@@ -44,44 +44,44 @@
 	% warton & Hui
     \node [ 
  visible on=<1->
-] at (\yearposx{(2011-1990)*1cm}, 0) [rotate=90,anchor=east] {2011};
-	\draw  [ 
- visible on=<1->
-] (\yearposx{(2011-1990)*1cm}, 3pt) --  (\yearposx{(2011-1990)*1cm}, -3pt);
-
-	% warton mvglm
-    \node [ 
- visible on=<1->
-] at (\yearposx{(2012-1990)*1cm}, 0) [rotate=90,anchor=east] {2012};
+] at (\yearposx{(2012-1990)*1cm}, 0) [rotate=90,anchor=east] {2011};
 	\draw  [ 
  visible on=<1->
 ] (\yearposx{(2012-1990)*1cm}, 3pt) --  (\yearposx{(2012-1990)*1cm}, -3pt);
 
-	% Szoecs, mesocosm
-    \node [ text = myalert,
- visible on=<1>
-] at (\yearposx{(2015-1990)*1cm}, 0) [rotate=90,anchor=east] {2015};
-    \node [
- visible on=<2->
-] at (\yearposx{(2015-1990)*1cm}, 0) [rotate=90,anchor=east] {2015};
+	% warton mvglm
+    \node [ 
+ visible on=<1->
+] at (\yearposx{(2013-1990)*1cm}, 0) [rotate=90,anchor=east] {2012};
 	\draw  [ 
  visible on=<1->
+] (\yearposx{(2013-1990)*1cm}, 3pt) --  (\yearposx{(2013-1990)*1cm}, -3pt);
+
+	% Szoecs, mesocosm
+    \node [ text = myalert,
+ visible on=<1-2>
+] at (\yearposx{(2015-1990)*1cm}, 0) [rotate=90,anchor=east] {2015};
+    \node [
+ visible on=<3->
+] at (\yearposx{(2015-1990)*1cm}, 0) [rotate=90,anchor=east] {2015};
+	\draw  [ 
+ visible on=<2->
 ] (\yearposx{(2015-1990)*1cm}, 3pt) --  (\yearposx{(2015-1990)*1cm}, -3pt);
 
 	% Ives
     \node [ 
- visible on=<1>
+ visible on=<2>
 ] (ohara) at (\yearposx{(2010-1990)*1cm}, 5)  {\includegraphics[width=10cm]{/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/glm_hist/ives_2015.png}};
 
 	% warton
     \node [ text = myalert,
- visible on=<2->
+ visible on=<3->
 ] at (\yearposx{(2016-1990)*1cm}, 0) [rotate=90,anchor=east] {2016};
 	\draw  [ 
- visible on=<2->
+ visible on=<3->
 ] (\yearposx{(2016-1990)*1cm}, 3pt) --  (\yearposx{(2016-1990)*1cm}, -3pt);
     \node [ 
- visible on=<2->
+ visible on=<3->
 ] (ohara) at (\yearposx{(2010-1990)*1cm}, 5)  {\includegraphics[width=10cm]{/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/glm_hist/warton_2016.png}};
 
 

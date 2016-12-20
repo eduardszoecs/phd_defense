@@ -79,6 +79,8 @@
 % \setbeameroption{show notes on second screen=right} % Both
 
 
+
+
 % for overview.tikz figure
 \newlength\yearposx
 
@@ -242,7 +244,7 @@
 
 
 \begin{frame}
-\frametitle{GLMs do not always work}
+\frametitle{GLMs can fail}
 	\begin{center}
 		\includegraphics[width=\textwidth]{figs/p_t1_xkcd.pdf}
 	\end{center}
@@ -250,7 +252,7 @@
 
 
 \begin{frame}
-\frametitle{Power is low, GLM can do better}
+\frametitle{But GLMs can do also better}
 	\begin{center}
 	\includegraphics[width = \textwidth]{figs/p_pow_xkcd.pdf}
 	\end{center}
@@ -273,7 +275,8 @@
 
 \begin{frame}
 \frametitle{Where are we today?}
-	\only<1>{Three days earlier...}
+
+	\only<1-2>{Three days earlier...}
 	\input{figs/tikz/glm_timeline2.tikz}
 \end{frame}
 
@@ -326,16 +329,16 @@
 
 \begin{frame}
 \frametitle{Risks}
-Check: What did go wrong with Neonics during ERA?
-Exposure wromg? Effect wrong (e.g. did not consider sensitive species)?
-=> Quite sure that Effect assessment missed it...
-=> show SSD, highlighting standard test species (from EPA)
-* old guidance document did not enforce insect.
-* new one (from 2013) enforces additional insect data
+%  Check: What did go wrong with Neonics during ERA?
+% Exposure wromg? Effect wrong (e.g. did not consider sensitive species)?
+% => Quite sure that Effect assessment missed it...
+% => show SSD, highlighting standard test species (from EPA)
+% * old guidance document did not enforce insect.
+% * new one (from 2013) enforces additional insect data
 
-RAC is landscape dependend (=> exposure?)
+% RAC is landscape dependend (=> exposure?)
 
-Example for power (experimental setup)
+% Example for power (experimental setup)
 
 \end{frame}
 
@@ -425,7 +428,7 @@ Example for power (experimental setup)
 
 {%
 \setbeamertemplate{frame footer}{Dr. Susan E. Johnston, University of Edinburgh. On twitter.
-}
+	}
 \begin{frame}
 \frametitle{Instead of wasting time...}
 ... use \alert{taxize!} \\
@@ -558,33 +561,32 @@ Example for power (experimental setup)
 
 
 \begin{frame}
-\frametitle{Comparison with recent studies}
-\begin{columns}[T]
-%%%! Maybe use table for this (better aligned items)
+\frametitle{Comparison with recent studies (TODO!)}
+	\begin{columns}[T]
 	    \column{.33\textwidth}
-	    	\underline{Szöcs (2016)}
-	        	\item Germany
-	        	\item Monitoring
-	        	\item Grab sampling \vspace{1.2em}
-	        	\item %coverage
-	        	\item \% LOQ: 
-	        	\item % substances
+	    \underline{Szöcs (2016)}
+	    \begin{itemize}
+        	\item Germany
+        	\item Monitoring
+        	\item Grab sampling \vspace{1.2em}
+        	\item \% LOQ: 
+        \end{itemize}
 	    \column{.33\textwidth}
-	    	\underline{Stehle (xxx)}
-	        	\item Europe / Global
-	        	\item Scientific Publications
-	        	\item Grab \& Event driven sampling
-	        	\item %coverage
-	        	\item \% LOQ: 
-	        	\item
+	    \underline{Stehle (xxx)}
+	    \begin{itemize}
+        	\item Europe / Global
+        	\item Scientific Publications
+        	\item Grab \& Event driven sampling
+        	\item \% LOQ: 
+        	\end{itemize}
 	    \column{.33\textwidth}
-	    	\underline{Knauer (xxx)}
-	        	\item Switzerland
-	        	\item Monitoring
-	        	\item Grab sampling \vspace{1.2em}
-	        	\item %coverage
-	        	\item \% LOQ: 
-	        	\item 
+	    \underline{Knauer (xxx)}
+	    \begin{itemize}
+        	\item Switzerland
+        	\item Monitoring
+        	\item Grab sampling \vspace{1.2em}
+        	\item \% LOQ: 
+        	\end{itemize}
 	\end{columns}
 \end{frame}
 
@@ -597,7 +599,7 @@ Example for power (experimental setup)
 \end{frame}
 
 \begin{frame}
-\frametitle{RACs by Compound}
+\frametitle{RACs by Compound (Add Stehle to plot...)}
 	\begin{adjustbox}{max totalsize={\textwidth}{0.95\textheight}}
 				\input{figs/tikz/ap_rac2.tikz}
 	\end{adjustbox}
@@ -620,6 +622,8 @@ Example for power (experimental setup)
 	        \end{itemize}
 	\end{columns}
 \end{frame}
+
+
 
 \begin{frame}
 \frametitle{Simulations are worth their work, use them \emph{a priori}!}
@@ -657,6 +661,36 @@ see notes on lecture on 16.12.2016
 	\end{columns}
 
 \end{frame}
+
+
+\begin{frame}
+\frametitle{A global perspective}
+	\begin{adjustbox}{max totalsize={\textwidth}{0.95\textheight}}
+				\input{figs/tikz/ap_pers.tikz}
+	\end{adjustbox}
+
+% show world bank data.
+% agriculture will be intensified (=more needs for pesticides)
+% pop growth can (and must be) reduced, by reducing child mortality (more vaccination, health care... = wealth)
+% ERA gets more important. Pesticides are needed, but use them responsibly with low risks
+% Risk mitigation important. Integrated pest management, improved agriculture (Wechsel, ....)
+\end{frame}
+
+
+{%
+\setbeamertemplate{frame footer}{\url{https://www.gapminder.org/tools}
+	}
+\begin{frame}
+\frametitle{A global perspective (II)}
+	\includegraphics[width=\textwidth, keepaspectratio]{figs/pop_mort.png}
+	% Child mortality stands also for health and wealth.
+	% Increase both and the population growth will likely decrease
+	% Pesticides probably needed, as there are also losses due to pests
+	% Use pesticides with low risk (ERA!), reduce risk by risk mitigation
+	% but also optimize food usage and distribution
+\end{frame}
+}
+
 
 
 \begin{frame}
