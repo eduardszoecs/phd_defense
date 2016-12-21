@@ -65,7 +65,7 @@
  visible on=<3->
 ] at (\yearposx{(2015-1990)*1cm}, 0) [rotate=90,anchor=east] {2015};
 	\draw  [ 
- visible on=<2->
+ visible on=<1->
 ] (\yearposx{(2015-1990)*1cm}, 3pt) --  (\yearposx{(2015-1990)*1cm}, -3pt);
 
 	% Ives
