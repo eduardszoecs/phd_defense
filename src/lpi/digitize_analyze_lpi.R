@@ -24,7 +24,7 @@ library('esmisc')
 library('tikzDevice')
 head(lpi)
 lpi_plot <- ggplot(lpi) +
-  geom_line(aes(x = x, y = y, col = habitat), size = 1) + 
+  geom_line(aes(x = x, y = y, col = habitat), size = 1.5) + 
   geom_hline(aes(yintercept = 1), linetype = 'dotted') +
   theme_edi() +
   labs(y = 'Index value (1970 = 1)', x = 'Year') +
@@ -33,7 +33,9 @@ lpi_plot <- ggplot(lpi) +
   ylim(c(0, 1.5)) +
   scale_color_manual('Habitat', 
                      values = c('steelblue', 'blue', "green4"),
-                     breaks = c("terrestric", "marine", "freshwater"))
+                     breaks = c("terrestric", "marine", "freshwater")) +
+  ggtitle('Living Planet Index')
+lpi_plot
 
 ggsave('/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/lpi.tikz',
        lpi_plot, 

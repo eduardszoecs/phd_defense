@@ -22,6 +22,8 @@
 
  \definecolor{ao}{rgb}{0.00, 0.40, 0.60}
 
+
+
 \begin{tikzpicture}[node distance = 2cm, auto]
 	
 % clip figure
@@ -38,9 +40,9 @@
 	\node [name = exp, block, minimum width=2cm, 
 		visible on=<4->] {Experiment} ;
 	\node [name = stat, block, minimum width=2cm, right=1cm of exp,
-	visible on=<4-7>] {Data / Statistics} ;
-	\node [name = stat, block, minimum width=2cm, right=1cm of exp, color=myalert, 
-	visible on=<8->] {Data / Statistics} ;
+	visible on=<4->] {Data / Statistics} ;
+	% \node [name = stat, block, minimum width=2cm, right=1cm of exp, color=myalert, 
+	% visible on=<8->] {Data / Statistics} ;
     \node [name = eff, block, 
 		minimum width=57mm, 
 		minimum height=25mm, 
@@ -90,94 +92,97 @@
 	\node [name = chem, block, 
 		below left = 2cm and 2cm of monit, anchor = south,
 		minimum width=3cm, font=\large,text width = 30mm,
-		visible on=<6-8>] { Chemistry};
-	\node [name = chem, block, 
-		below left = 2cm and 2cm of monit, anchor = south,
-		minimum width=3cm, font=\large,text width = 30mm, color=myalert,
-		visible on=<9->] { Chemistry};
+		visible on=<6->] { Chemistry};
+	% \node [name = chem, block, 
+	% 	below left = 2cm and 2cm of monit, anchor = south,
+	% 	minimum width=3cm, font=\large,text width = 30mm, color=myalert,
+	% 	visible on=<9->] { Chemistry};
 
 
-  %% Chapters
-	\node[name = chap2, paper, 
-		above left = 5mm and -15mm of stat, 
-		anchor = east,
-		visible on=<8->]{1};	
-    \node[name = chap3, paper, 
-		below left = -22mm and 0mm of chem, anchor = north, 
-		visible on=<9->
-		]{2};
-	\node[name = chap4, paper, anchor = north, yshift=-25mm,  xshift = 10mm,
-		visible on=<11->] (chap4) at ($(chem)!0.5!(expo)$) {3};
-	\node[name = chap5, paper, anchor = south, yshift=20mm, xshift = 10mm,
-		visible on=<12->] (chap5) at ($(bio)!0.5!(eff)$) {4};
-   \node[name=rl1, below= 0mm of chap4, font=\Large, color=myalert,
-   visible on=<11->]{Retrieve \& Link data};
-      \node[name=rl1, above= 0mm of chap5, font=\Large, color=myalert,
-   visible on=<12->]{Retrieve \& Link data};
+ %  %% Chapters
+	% \node[name = chap2, paper, 
+	% 	above left = 5mm and -15mm of stat, 
+	% 	anchor = east,
+	% 	visible on=<8->]{1};	
+ %    \node[name = chap3, paper, 
+	% 	below left = -22mm and 0mm of chem, anchor = north, 
+	% 	visible on=<9->
+	% 	]{2};
+	% \node[name = chap4, paper, anchor = north, yshift=-25mm,  xshift = 10mm,
+	% 	visible on=<11->] (chap4) at ($(chem)!0.5!(expo)$) {3};
+	% \node[name = chap5, paper, anchor = south, yshift=20mm, xshift = 10mm,
+	% 	visible on=<12->] (chap5) at ($(bio)!0.5!(eff)$) {4};
+ %   \node[name=rl1, below= 0mm of chap4, font=\Large, color=myalert,
+ %   visible on=<11->]{Retrieve \& Link data};
+ %      \node[name=rl1, above= 0mm of chap5, font=\Large, color=myalert,
+ %   visible on=<12->]{Retrieve \& Link data};
 
+	%% Legislation
    \node[name=dir, above= 25mm of eff, font=\Large, text width = 60mm, fill = ao, text=white, xshift=10mm,
-   visible on=<1->]{\textbf{Plant Protection Products 1107/2009}};
+   visible on=<1->]{\textbf{Plant Protection Products Regulation 1107/2009}};
    \node[name=wfd, right= 90mm of dir, font=\Large, text width = 65mm, 
    fill = ao, text=white,
    visible on=<1->]{\textbf{Water Framework Directive 2000/60/EC}};
 
 
-% papers
-   	\node[name = chap2a, paper, 
-		below = 45mm of expo, 
-		anchor = east,
-		visible on=<8>]{1};	
-	\node[name = chap2t, right = 5mm of chap2a, font = \bf\Large, color = myalert, 
-	visible on=<8>]{Szöcs \& Schäfer (2015). “Ecotoxicology is not normal”. ESPR 22(18), 13990–13999.};
+% % papers
+%    	\node[name = chap2a, paper, 
+% 		below = 45mm of expo, 
+% 		anchor = east,
+% 		visible on=<8>]{1};	
+% 	\node[name = chap2t, right = 5mm of chap2a, font = \bf\Large, color = myalert, 
+% 	visible on=<8>]{Szöcs \& Schäfer (2015). “Ecotoxicology is not normal”. ESPR 22(18), 13990–13999.};
 
-	\node[name = chap3a, paper, 
-		below = 45mm of expo, 
-		anchor = east,
-		visible on=<9-10>]{2};	
-	\node[name = chap3t, right = 5mm of chap3a, font = \bf\Large, color = myalert, text width = 200mm,
-	visible on=<9-10>]{Szöcs, Brinke, Karaoglan \& Schäfer (submitted). “Large scale risks from pesticides in small streams”. ES\&T.};
+% 	\node[name = chap3a, paper, 
+% 		below = 45mm of expo, 
+% 		anchor = east,
+% 		visible on=<9-10>]{2};	
+% 	\node[name = chap3t, right = 5mm of chap3a, font = \bf\Large, color = myalert, text width = 200mm,
+% 	visible on=<9-10>]{Szöcs, Brinke, Karaoglan \& Schäfer (submitted). “Large scale risks from pesticides in small streams”. ES\&T.};
 
-	\node[name = chap4a, paper, 
-		below = 45mm of expo, 
-		anchor = east,
-		visible on=<11>]{3};	
-	\node[name = chap4t, right = 5mm of chap4a, font = \bf\Large, color = myalert, text width = 200mm,
-	visible on=<11>]{Szöcs \& Schäfer (accepted). “webchem: An R Package to Retrieve Chemical Information from the Web”. JSS.};
+% 	\node[name = chap4a, paper, 
+% 		below = 45mm of expo, 
+% 		anchor = east,
+% 		visible on=<11>]{3};	
+% 	\node[name = chap4t, right = 5mm of chap4a, font = \bf\Large, color = myalert, text width = 200mm,
+% 	visible on=<11>]{Szöcs \& Schäfer (accepted). “webchem: An R Package to Retrieve Chemical Information from the Web”. JSS.};
 
-	\node[name = chap5a, paper, 
-		below = 45mm of expo, 
-		anchor = east,
-		visible on=<12>]{4};	
-	\node[name = chap5t, right = 5mm of chap5a, font = \bf\Large, color = myalert, text width = 200mm,
-	visible on=<12>]{Chamberlain \& Szöcs (2013). “taxize: taxonomic search and retrieval in R”. F1000Research 2(191).};
+% 	\node[name = chap5a, paper, 
+% 		below = 45mm of expo, 
+% 		anchor = east,
+% 		visible on=<12>]{4};	
+% 	\node[name = chap5t, right = 5mm of chap5a, font = \bf\Large, color = myalert, text width = 200mm,
+% 	visible on=<12>]{Chamberlain \& Szöcs (2013). “taxize: taxonomic search and retrieval in R”. F1000Research 2(191).};
 
 % arrows
-	\path [line,
-	visible on=<4->] (exp) -- (stat);
 	\path [line, 
 	visible on=<3->] (prop) -- (model);
+		\path [line,
+	visible on=<3->] (expo) -| node[pos = 0.4, font = \large,  below]{PEC} (risk);
+		\path [line,
+	visible on=<4->] (exp) -- (stat);
 	\path [line,
 	visible on=<4->] (eff) -| node[pos = 0.4, font = \large]{RAC} (risk);
 	\path [line,
-	visible on=<3->] (expo) -| node[pos = 0.4, font = \large,  below]{PEC} (risk);
+	visible on=<5->] (monit) |- (bio);
 	\path [line,
 	visible on=<6->] (monit) |- (chem);
-	\path [line,
-	visible on=<5->] (monit) |- (bio);
-	\path [line, dashed,
-	visible on=<11->] (chap4) edge [bend left = 15, color=myalert]  (prop);
-    \path [line, dashed,
-    visible on=<12->] (chap5) edge [bend right = 15, color=myalert]   (stat);
-	\path [line, dashed,
-	visible on=<11->] (chap4) edge [bend right = 15, color=myalert]   (chem);
-    \path [line, dashed,
-    visible on=<12->] (chap5) edge [bend left = 15, color=myalert]   (bio);
-    \path [dashed,
-    visible on=<10->] ([yshift=5mm]bio.south west) edge[line, bend left = -10]   ([yshift=0mm]risk.north east);
-    \path [dashed,
-    visible on=<10->] (chap3.north west) edge [line, bend right = 30] node[xshift = 20mm, yshift =9mm, font = \large, align = center] {Retrospection}  (risk);
 	\path [dashed,
 	visible on=<7->] (risk.south east) edge [line ,bend right = 40]  node [xshift = 10mm, pos =0.2,  below, font = \large, align = center, fill = white] {Approves \\ Substance} (chem);
 
+	% \path [line, dashed,
+	% visible on=<11->] (chap4) edge [bend left = 15, color=myalert]  (prop);
+ %    \path [line, dashed,
+ %    visible on=<12->] (chap5) edge [bend right = 15, color=myalert]   (stat);
+	% \path [line, dashed,
+	% visible on=<11->] (chap4) edge [bend right = 15, color=myalert]   (chem);
+ %    \path [line, dashed,
+ %    visible on=<12->] (chap5) edge [bend left = 15, color=myalert]   (bio);
+ %    \path [dashed,
+ %    visible on=<10->] ([yshift=5mm]bio.south west) edge[line, bend left = -10]   ([yshift=0mm]risk.north east);
+ %    \path [dashed,
+ %    visible on=<10->] (chap3.north west) edge [line, bend right = 30] node[xshift = 20mm, yshift =9mm, font = \large, align = center] {Retrospection}  (risk);
 
+ \node[text=myalert,anchor=base,inner sep=0pt, outer sep=0pt, scale=8, font=\bf, rotate=20,
+ visible on=<8->] at (10, -3) {Data everywhere};
 \end{tikzpicture}

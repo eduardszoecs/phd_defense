@@ -19,6 +19,9 @@ library(ggplot2)
 library(cowplot) # This is only use to put the graphs on a grid
 library(tikzDevice) # To export to tikz
 
+# cache directory
+cachedir <- '/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/src/cache/'
+figdir <- '/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/'
 
 # Retrieve data -----------------------------------------------------------
 
@@ -61,12 +64,26 @@ setDT(countries)
 # to find the indicator we want.
 # I cached the results here, if used with FOAsearch you can replace with
 # queri_i <- .LastSearch
+# see also the vignette
+# R> vignette("FAOSTAT")
 query_pi <- structure(list(elementCode = 5622L, itemCode = "1357", domainCode = "RT", 
                         name = "Pesticides (trade)_Pesticides_Import Value (1000 US$)"), 
                    .Names = c("elementCode", "itemCode", "domainCode", "name"), 
                    row.names = c(NA, -1L), class = "data.frame")
 pi_raw <- getFAO(query = query_pi)
 
+
+
+
+# Cache data (for offline use) --------------------------------------------
+
+saveRDS(wbdata, file = file.path(cachedir, 'wbdata.rds'))
+saveRDS(countries, file = file.path(cachedir, 'countries.rds'))
+saveRDS(pi_raw, file = file.path(cachedir, 'pi_raw.rds'))
+
+# wbdata <- readRDS(file.path(cachedir, 'wbdata.rds'))
+# countries <- readRDS(file.path(cachedir, 'countries.rds'))
+# pi_raw <- readRDS(file.path(cachedir, 'pi_raw.rds'))
 
 
 # Clean data --------------------------------------------------------------
@@ -160,7 +177,7 @@ pdat$income <- factor(pdat$income, levels = c("High income", "Upper middle incom
 pop <- ggplot() +
   geom_area(data = pdat, 
             aes(x = date, y = value, fill = income), alpha = 0.8) +
-  theme_edi(base_size = 16) +
+  theme_edi(base_size = 18) +
   labs(x = 'Year', y = 'Population') +
   ggtitle('Population since 1960', subtitle = 'Source: World Bank') +
   scale_fill_brewer('Income', palette = 'Dark2') +
@@ -174,7 +191,7 @@ pop
 food <- ggplot() +
   geom_line(data = world[indicator == 'Food production index (2004-2006 = 100)'],
             aes(x = date, y = value), size = 2) +
-  theme_edi(base_size = 16) +
+  theme_edi(base_size = 18) +
   scale_x_continuous(breaks = seq(1960, 2015, 10)) +
   labs(x = 'Year', y = 'Index value') +
   ggtitle('Food production index',
@@ -195,7 +212,7 @@ agriarea <- ggplot() +
             aes(x = date, y = value*100, col = income), size = 2) +
   geom_line(data = world[indicator == 'Agricultural land (%)' & !value == 0],
             aes(x = date, y = value*100), size = 2) +
-  theme_edi(base_size = 16) +
+  theme_edi(base_size = 18) +
   labs(x = 'Year', y = 'Agricultural Area [\\%]') +
   ggtitle('Agricultural Area [\\%]', subtitle = 'Source: World Bank') +
   scale_color_brewer('Income', palette = 'Dark2') +
@@ -212,15 +229,15 @@ pi$income <- factor(pi$income, levels = c("High income", "Upper middle income",
 mean_pi <- pi[ , list(m = mean(value)) , by = list(Year, income)]
 
 piplot <- ggplot() +
-  geom_line(data = pi, 
-            aes(x = Year, y = value/1000, col = income, group = country), 
-            alpha = 0.3) + 
+  # geom_line(data = pi, 
+  #           aes(x = Year, y = value/1000, col = income, group = country), 
+  #           alpha = 0.2) + 
   geom_line(data = mean_pi, 
             aes(x = Year, y = m/1000, col = income), 
             size = 2) +
   scale_y_log10(breaks = c(0.01, 0.1, 1, 10, 100, 1000)) +
   scale_x_continuous(breaks = seq(1960, 2015, 10)) +
-  theme_edi(base_size = 16) +
+  theme_edi(base_size = 18) +
   scale_color_brewer('Income', palette = 'Dark2') +
   labs(y = 'Pesticide Imports (million US \\$)') +
   ggtitle('Pesticide Imports', 

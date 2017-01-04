@@ -5,6 +5,38 @@ if(!exists("prj")){
   source(file.path(prj, "src", "0-load.R"))
 }
 
+n_labeller <- function(string){
+  value <- paste0('n = ', string)
+}
+
+require(tikzDevice)
+figp <- '/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/'
+tikzp <- '/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/'
+require(esmisc)
+# require(latex2exp)
+
+
+# Plot one simulation -----------------------------------------------------
+
+dat <- dosim2(N = 5, pC = 0.90, pE = 0.45, nsim = 100, n_animals = 5)
+plot(dat$x, dat$y[,1])
+
+pdat <- data.frame(x = dat$x, y = dat$y[,1])
+pdat
+
+p_sim <- ggplot(pdat, aes(x = x, y = y)) + 
+  geom_count() +
+  theme_edi() +
+  labs(y = 'Number of surviving animals\n(out of 5)', 
+       x = 'Treatment') +
+  ggtitle('Binomial data', 
+          subtitle = 'n = 5, p(Control,T1) = 0.9, p(T2-T6) = 0.45')
+p_sim
+
+
+ggsave(plot = p_sim, filename = file.path(tikzp, 'p_sim.tikz'), device = tikz,
+       width = 6, height = 5)
+
 ### ----------------------------------------------------------------------------
 ### Results -  Count data
 ### Written by Eduard Szöcs
@@ -17,14 +49,6 @@ res1_c <- readRDS(file.path(cachedir, 'res1_c.rds'))
 # Type I error
 res2_c <- readRDS(file.path(cachedir, 'res2_c.rds'))
 
-n_labeller <- function(string){
-    value <- paste0('n = ', string)
-}
-
-require(tikzDevice)
-figp <- '/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/'
-tikzp <- '/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/'
-require(esmisc)
 
 ### ----------------------------------------------------------------------------
 ### Global test 

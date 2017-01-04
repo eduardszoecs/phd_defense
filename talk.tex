@@ -41,8 +41,8 @@
 %https://github.com/matze/mtheme/issues/237
 \makeatletter
 \setlength{\metropolis@titleseparator@linewidth}{1pt}
-\setlength{\metropolis@progressonsectionpage@linewidth}{1.5pt}
-\setlength{\metropolis@progressinheadfoot@linewidth}{1.5pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{2pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{2pt}
 \makeatother
 
 
@@ -148,6 +148,13 @@
 \end{frame}
 
 
+\begin{frame}[noframenumbering]
+\frametitle{Improving Statistics in ERA}
+ \resizebox{11.5cm}{!}{%
+				\input{figs/tikz/overview_chp1.tikz}
+				}
+\end{frame}
+
 
 %%% ---------------------------------------------------------------------------
 \section{Improving Statistics in ERA}
@@ -238,13 +245,31 @@
 
 \begin{frame}
 \frametitle{A simulation study}
-
+	\begin{columns}[T]
+	\column<1->{.49\textwidth}
+		\includegraphics[width=\textwidth]{figs/daphnia1.png}
+		\vspace{3.8em}
+		\begin{itemize}
+			\item Count \& Binomial data
+			\item Vary replicates \& Effect size
+			\item Global test \& LOEC
+		\end{itemize}
+	\column<2->{.49\textwidth}
+		\begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
+					\input{figs/tikz/p_sim.tikz}
+		\end{adjustbox}
+		\begin{itemize}
+			\item LM
+			\item GLMs
+			\item Non-parametric
+		\end{itemize}
+	\end{columns}
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{GLMs can fail}
+\frametitle{Type I Errors: GLMs can fail}
 	\begin{center}
 		\includegraphics[width=\textwidth]{figs/p_t1_xkcd.pdf}
 	\end{center}
@@ -252,7 +277,7 @@
 
 
 \begin{frame}
-\frametitle{But GLMs can do also better}
+\frametitle{Power: But GLMs can do also better}
 	\begin{center}
 	\includegraphics[width = \textwidth]{figs/p_pow_xkcd.pdf}
 	\end{center}
@@ -264,11 +289,11 @@
 \frametitle{What we learned from this study}
 	\metroset{block=fill}
 		\begin{enumerate}
-			\item Negative-binomial GLM show increased Type I errors
-			\item Can be fixed via bootstrap
-			\item Power in ecotoxicological experiments generally low
-			\item NOECs are not reliable
-			\item GLMs can increase this power
+			\item Negative-binomial GLM show increased \alert{Type I errors}
+			\item Can be fixed via \alert{bootstrap}
+			\item Ecotoxicological experiments commonly \alert{low power} 
+			\item \alert{NOECs} are not reliable
+			\item \alert{GLMs} can increase this  power
 		\end{enumerate}
 \end{frame}
 
@@ -297,16 +322,68 @@
 \end{frame}
 }
 
+
+
+
 %%% ---------------------------------------------------------------------------
 \section{Exploring Monitoring Data for ERA}
 
+\begin{frame}[noframenumbering]
+\frametitle{Exploring Monitoring Data for ERA}
+ \resizebox{11.5cm}{!}{%
+				\input{figs/tikz/overview_chp2.tikz}
+				}
+\end{frame}
+
+
 \begin{frame}
-\frametitle{Environmental Monitoring}
+\frametitle{Exposure Assessment \& Environmental Monitoring}
+	\begin{columns}
+	    \column{.49\textwidth}
+	    	\underline{Exposure Assessment}
+	    	\begin{itemize}
+	    		\item small waters \\ (1m width, 30cm depth)
+	    		\item prospective
+	    		\item Plant Protection Products
+	    		\item Regulatory Acceptable concentrations (RAC)
+	    	\end{itemize}
+	    \column{.49\textwidth}
+	    	\underline{Chemical Monitoring}
+	    	\begin{itemize}
+	    		\item large waters \\ (mainly \textgreater10km\textsuperscript{2})
+	    		\item retrospective
+	    		\item All chemicals
+	    		\item Environmental Quality Standards (EQS)
+	    	\end{itemize}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Goals \& Hypotheses}
+	\metroset{block=fill}
+	\begin{exampleblock}{Goal: Can monitoring inform ERA?}
+		\begin{itemize}
+			\item Compile nation-wide monitoring data (federalism)
+			\item Focus on small streams (ERA \& Importance)
+			\item Identify risks \& factors driving them
+		\end{itemize}
+	\end{exampleblock}
+	\pause
+	\begin{exampleblock}{Hypotheses}
+		\begin{enumerate}
+			\item Agricultural streams show highest concentrations
+			\item Small streams show highest concentration
+			\item Samples at precipitation events  show higher concentration
+			\item Highest concentrations in summer
+		\end{enumerate}
+	\end{exampleblock}
+
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Overview on data compiled}
+\frametitle{Overview on compiled data}
 
 \end{frame}
 
@@ -348,8 +425,19 @@
 
 \end{frame}
 
+
+
 %%% ---------------------------------------------------------------------------
 \section{Solutions for Linking Data in ERA}
+
+
+\begin{frame}[noframenumbering]
+\frametitle{Solutions for Linking Data in ERA}
+ \resizebox{11.5cm}{!}{%
+				\input{figs/tikz/overview_chp34.tikz}
+				}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Biologists \& Chemists face the same problems}
@@ -448,6 +536,11 @@
 \section*{Recap}
 
 \begin{frame}
+\frametitle{Recap: What did I look at?}
+
+\end{frame}
+
+\begin{frame}
 \frametitle{What we learned}
 	\metroset{block=fill}
 	\begin{exampleblock}{\checkmark Improving Statistics in ERA}
@@ -475,7 +568,18 @@
 			\item Now easier
 		\end{itemize}
 	\end{exampleblock}
+\end{frame}
 
+\begin{frame}
+\frametitle{Many Thanks To}
+	\begin{itemize}
+		\item My supervisor Prof. Dr. Ralf. B. Schäfer (for his support, openness, opportunities \& discussions)
+		\item My colleagues \& collaborators (to many to list here)
+		\item German Environment Agency (for funding \& collab)
+		\item Scientific Advisory Board (for advice, insights \& discussion)
+		\item My parents Anca \& Helmut (for their support)
+		\item My girlfriend Anja (for everything)
+	\end{itemize}
 
 \end{frame}
 
@@ -561,6 +665,24 @@
 
 
 \begin{frame}
+\frametitle{Stream size / width}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Importance of small streams}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Dynamics}
+
+\end{frame}
+
+
+\begin{frame}
 \frametitle{Comparison with recent studies (TODO!)}
 	\begin{columns}[T]
 	    \column{.33\textwidth}
@@ -627,19 +749,52 @@
 
 \begin{frame}
 \frametitle{Simulations are worth their work, use them \emph{a priori}!}
-Experimental design for dose-response experiments - a simulation \\
-\url{http://edild.github.io/lc50_bias_sim/}
-	    	\includegraphics[width=0.5\textwidth, keepaspectratio]{figs/sim_drm.png}
-\url{http://uni-ko-ld.de/g3}
+	Experimental design for dose-response experiments - a simulation \\
+	\url{http://edild.github.io/lc50_bias_sim/}
+		    	\includegraphics[width=0.5\textwidth, keepaspectratio]{figs/sim_drm.png} \\
+	\begin{description}
+		\item[GLM-Explorer:]{\url{http://uni-ko-ld.de/g3}}
+	\end{description}
 \end{frame}
 
 
 
 \begin{frame}
 \frametitle{Reasons for observed RAC exceedances}
-see notes on lecture on 16.12.2016
+	\begin{itemize}
+		\item Risk Mitigation fails
+			\begin{itemize}
+				\item Risk mitigation measures (erosion rills, wind)
+				\item Farmer do not adhere (GAP, no spray zones)
+			\end{itemize}
+		\item Risk Assessment fails
+			\begin{itemize}
+				\item Exposure Assessment
+					\begin{itemize}
+						\item Models not working (Knäbel et al.)
+					\end{itemize}
+				\item Effect Assessment
+					\begin{itemize}
+						\item Missed sensitive species
+						\item New document asks also for insects
+					\end{itemize}
+			\end{itemize}
+
+	\end{itemize}
+\end{frame}
+
+
+{%
+\setbeamertemplate{frame footer}{Bereswill, Streloke, Schulz (2014). Risk mitigation measures for diffuse pesticide entry into aquatic ecosystems: Proposal of a guide to identify appropriate measures on a catchment scale: Guide to Identify Pesticide Risk Mitigation Measures. IEAM 10, 286–298. 
+}
+\begin{frame}
+\frametitle{Risk Mitigation Measures}
+	    	    	\includegraphics[height=0.8\textheight]{figs/bereswill_2014_fig1.png}
+
 
 \end{frame}
+}
+
 
 
 
@@ -661,23 +816,25 @@ see notes on lecture on 16.12.2016
 
 \end{frame}
 
-
+{%
+\setbeamertemplate{frame footer}{Source code to retrieve data and reproduce results: \url{http://uni-ko-ld.de/g7}
+	}
 \begin{frame}
 \frametitle{A global perspective}
-	\begin{adjustbox}{max totalsize={\textwidth}{0.95\textheight}}
+	\begin{adjustbox}{max totalsize={\textwidth}{0.92\textheight}}
 				\input{figs/tikz/ap_pers.tikz}
 	\end{adjustbox}
-
 % show world bank data.
 % agriculture will be intensified (=more needs for pesticides)
 % pop growth can (and must be) reduced, by reducing child mortality (more vaccination, health care... = wealth)
 % ERA gets more important. Pesticides are needed, but use them responsibly with low risks
 % Risk mitigation important. Integrated pest management, improved agriculture (Wechsel, ....)
 \end{frame}
+}
 
 
 {%
-\setbeamertemplate{frame footer}{\url{https://www.gapminder.org/tools}
+\setbeamertemplate{frame footer}{Source: \url{https://www.gapminder.org/tools}
 	}
 \begin{frame}
 \frametitle{A global perspective (II)}
@@ -691,18 +848,27 @@ see notes on lecture on 16.12.2016
 }
 
 
-
+{%
+\setbeamertemplate{frame footer}{Poisot, T., 2015. Best publishing practices to improve user confidence in scientific software. Ideas in Ecology and Evolution 8. 
+	}
 \begin{frame}
-\frametitle{Software}
-\begin{description}
-	\item[webchem]{\url{https://github.com/ropensci/webchem}}
-	\item[taxize]{\url{https://github.com/ropensci/webchem}}
-\end{description}
+\frametitle{Software availability}
+	Stable versions on CRAN, dev versions on github.
+	\begin{description}
+		\item[webchem]{\url{github.com/ropensci/webchem}}
+		\item[taxize]{\url{github.com/ropensci/taxize}}
+	\end{description}
+	\vspace{1em}
 
-Stable versions also on CRAN...
-
+Best practices for Software:
+	\begin{itemize}
+		\item open source (permissive MIT License)
+		\item version control (git)
+		\item automated tests (Travis-CI)
+		\item in source documentation (roxygen)
+	\end{itemize}
 \end{frame}
-
+}
 
 
 % ------------------------------
