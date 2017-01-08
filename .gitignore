@@ -29,3 +29,6 @@
 
  
 .directory
+
+# other
+*.aux.xml

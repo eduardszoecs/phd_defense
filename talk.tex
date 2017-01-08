@@ -279,7 +279,7 @@
 \begin{frame}
 \frametitle{Power: But GLMs can do also better}
 	\begin{center}
-	\includegraphics[width = \textwidth]{figs/p_pow_xkcd.pdf}
+		\includegraphics[width = \textwidth]{figs/p_pow_xkcd.pdf}
 	\end{center}
 \end{frame}
 
@@ -342,18 +342,18 @@
 	    \column{.49\textwidth}
 	    	\underline{Exposure Assessment}
 	    	\begin{itemize}
-	    		\item small waters \\ (1m width, 30cm depth)
-	    		\item prospective
-	    		\item Plant Protection Products
-	    		\item Regulatory Acceptable concentrations (RAC)
+	    		\item<1-> prospective
+	    		\item<2-> Plant Protection Products
+	    		\item<3-> small waters \\ (1m width, 30cm depth)
+	    		\item<4-> Regulatory Acceptable concentrations (RAC)
 	    	\end{itemize}
 	    \column{.49\textwidth}
 	    	\underline{Chemical Monitoring}
 	    	\begin{itemize}
-	    		\item large waters \\ (mainly \textgreater10km\textsuperscript{2})
-	    		\item retrospective
-	    		\item All chemicals
-	    		\item Environmental Quality Standards (EQS)
+	    		\item<1-> retrospective
+	    		\item<2-> All chemicals
+	    		\item<3-> large waters \\ (mainly \textgreater10km\textsuperscript{2})
+	    		\item<4-> Environmental Quality Standards (EQS)
 	    	\end{itemize}
 	\end{columns}
 \end{frame}
@@ -364,9 +364,9 @@
 	\metroset{block=fill}
 	\begin{exampleblock}{Goal: Can monitoring inform ERA?}
 		\begin{itemize}
-			\item Compile nation-wide monitoring data (federalism)
-			\item Focus on small streams (ERA \& Importance)
-			\item Identify risks \& factors driving them
+			\item Compile nation-wide monitoring data % (federalism)
+			\item Focus on small streams % (ERA \& Importance)
+			\item Identify risks \& influencing factors
 		\end{itemize}
 	\end{exampleblock}
 	\pause
@@ -378,61 +378,83 @@
 			\item Highest concentrations in summer
 		\end{enumerate}
 	\end{exampleblock}
-
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Overview on compiled data}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Thresholds}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Statistics with chemical measurements}
-
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Dynamics}
-
+\frametitle{Compiled data: Big but inhomogeneous}
+	\begin{columns}[T]
+	    \column{.49\textwidth}
+	    	\begin{itemize}
+	    		\item Federalism
+	    		\item Compilation \& Homogenisation
+	    		\vspace{1em}
+	    		\item 1,766,104 measurements 
+	    		\item 478 pesticides (including metabolites)
+	    		\item 24,743 samples 
+	    		\item 2,301 sites
+	    	\end{itemize}
+	    \column{.49\textwidth}
+	    	\includegraphics[width = 1.1\textwidth]{figs/map_phch.pdf}
+	 \end{columns}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Risks}
-%  Check: What did go wrong with Neonics during ERA?
-% Exposure wromg? Effect wrong (e.g. did not consider sensitive species)?
-% => Quite sure that Effect assessment missed it...
-% => show SSD, highlighting standard test species (from EPA)
-% * old guidance document did not enforce insect.
-% * new one (from 2013) enforces additional insect data
+\frametitle{Small streams are underrepresented}
+	\includegraphics[width = 0.8\textwidth]{figs/distribution.pdf}
+\end{frame}
 
-% RAC is landscape dependend (=> exposure?)
 
-% Example for power (experimental setup)
+\begin{frame}
+\frametitle{Analysing chemical concentrations}
+	\begin{itemize}
+		\item Risk Quotient: $RQ = \frac{C}{RAC}$
+		\item concentrations \textless~LOQ
+		\item 
+	\end{itemize}
+\end{frame}
 
+
+\begin{frame}
+\frametitle{Results: Factors influencing risk (landscape)}
+	\includegraphics[width = 1\textwidth]{figs/agri_size_eff.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results: Factors influencing risk (sampling)}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Results: Compounds exceeding risk thresholds}
+	\includegraphics[width = 0.8\textwidth]{figs/compounds.pdf}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{What we learned}
-
+\begin{enumerate}
+	\item Huge differences between \alert{states}
+	\item Small streams currently \alert{underrepresented}
+	\item \alert{Agriculture} important factor
+	\item \alert{LOQ} gives additional insights
+	\item \alert{Underestimated} risk
+	\item Annual \alert{dynamics}
+	\item \alert{Neonicotinoids} + Chlorpyrifos
+\end{enumerate}
 \end{frame}
 
 
 
 %%% ---------------------------------------------------------------------------
-\section{Solutions for Linking Data in ERA}
+\section{Solutions for Data Handling in ERA}
 
 
 \begin{frame}[noframenumbering]
-\frametitle{Solutions for Linking Data in ERA}
+\frametitle{Solutions for Data Handling in ERA}
  \resizebox{11.5cm}{!}{%
 				\input{figs/tikz/overview_chp34.tikz}
 				}
@@ -519,17 +541,28 @@
 	}
 \begin{frame}
 \frametitle{Instead of wasting time...}
-... use \alert{taxize!} \\
-	\hspace*{-2cm}
-	\begin{center}
-	\includegraphics[height=0.6\textheight]{figs/sources_taxize.png}
-	\end{center}
+	... use \alert{taxize!} \\
+		\hspace*{-2cm}
+		\begin{center}
+		\includegraphics[height=0.6\textheight]{figs/sources_taxize.png}
+		\end{center}
 
-\pause
-\emph{''Days of searching done during my morning coffee. Amazing. \alert{taxize}.''}
+	\pause
+	\emph{''Days of searching done during my morning coffee. Amazing. \alert{taxize}.''}
 \end{frame}
 }
 
+
+\begin{frame}
+\frametitle{taxize \& webchem: Advances for you (researchers)}
+	\begin{enumerate}
+		\item saving of time % data cleaning takes 80% of resources
+		\item less errors
+		\item reproducibility
+		\item join different data sets
+		\item easy aggregations
+	\end{enumerate}
+\end{frame}
 
 
 %%% ---------------------------------------------------------------------------
@@ -537,8 +570,11 @@
 
 \begin{frame}
 \frametitle{Recap: What did I look at?}
-
+ \resizebox{11.5cm}{!}{%
+				\input{figs/tikz/overview_recap.tikz}
+				}
 \end{frame}
+
 
 \begin{frame}
 \frametitle{What we learned}
@@ -573,12 +609,11 @@
 \begin{frame}
 \frametitle{Many Thanks To}
 	\begin{itemize}
-		\item My supervisor Prof. Dr. Ralf. B. Schäfer (for his support, openness, opportunities \& discussions)
-		\item My colleagues \& collaborators (to many to list here)
-		\item German Environment Agency (for funding \& collab)
-		\item Scientific Advisory Board (for advice, insights \& discussion)
-		\item My parents Anca \& Helmut (for their support)
-		\item My girlfriend Anja (for everything)
+		\item My supervisor \alert{Prof. Dr. Ralf. B. Schäfer} (for his support, openness, opportunities \& discussions)
+		\item My \alert{colleagues \& collaborators} (to many to list here)
+		\item \alert{{G}erman Environment Agency} (for funding \& collab)
+		\item My parents \alert{Anca \& Helmut} (for their support)
+		\item My girlfriend \alert{Anja} (for everything)
 	\end{itemize}
 
 \end{frame}
@@ -653,25 +688,48 @@
 \end{frame}
 
 
+\begin{frame}
+	\frametitle{Idiosyncrasies of chemical concentrations}
+	\begin{columns}[T]
+	\column{.4\textwidth}
+		\footnotesize
+		\vspace{1em}
+		\begin{itemize}
+		\item continuous distribution in $\mathbb{R}^{+}_0$
+		\item censoring \\ (x \textless LOQ )
+		\item<2-> non-linearity \\ (season, trends)
+		\item<2-> dependency \\(spatial, temporal)
+		\item<2-> missing data
+		\end{itemize}
+	\column{.6\textwidth}
+		\colorbox{white}{\includegraphics<1->[width =\textwidth]{figs/glyph.pdf}}
+	\end{columns}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{ZAGA what...?}
-\begin{description}
-	% \item[shiny app: ]{\url{http://139.14.11.23:3838/teaching/zaga/}}
-	\item[shiny app: ]{\url{http://uni-ko-ld.de/g4}}
-\end{description}
-
+	\begin{description}
+		% \item[shiny app: ]{\url{http://139.14.11.23:3838/teaching/zaga/}}
+		\item[shiny app: ]{\url{http://uni-ko-ld.de/g4}}
+	\end{description}
+	\includegraphics[width=\textwidth]{figs/zaga_mods.pdf}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Stream size / width}
-
+	  \includegraphics[width=\textwidth]{figs/width_size.pdf}
 \end{frame}
+
 
 \begin{frame}
 \frametitle{Importance of small streams}
-
+	\includegraphics[width=\textwidth]{figs/streams_distr.pdf}
+	\begin{itemize}
+		\item Biodiversity
+		\item Refuge for re-colonisation
+	\end{itemize}
 \end{frame}
 
 
@@ -683,7 +741,7 @@
 
 
 \begin{frame}
-\frametitle{Comparison with recent studies (TODO!)}
+\frametitle{Comparison with other studies}
 	\begin{columns}[T]
 	    \column{.33\textwidth}
 	    \underline{Szöcs (2016)}
@@ -691,24 +749,30 @@
         	\item Germany
         	\item Monitoring
         	\item Grab sampling \vspace{1.2em}
-        	\item \% LOQ: 
+        	\item Pesticides
+        	\item Neonics + Chlorpyrifos (OP)
+        	\item ZAGA (\textless LOQ)
         \end{itemize}
 	    \column{.33\textwidth}
-	    \underline{Stehle (xxx)}
+	    \underline{Stehle (2015)}
 	    \begin{itemize}
         	\item Europe / Global
-        	\item Scientific Publications
+        	\item Publications
         	\item Grab \& Event driven sampling
-        	\item \% LOQ: 
-        	\end{itemize}
+        	\item Insecticides
+        	\item Organophos.+ Pyrethroids
+        	\item LM for \textgreater LOQ
+        \end{itemize}
 	    \column{.33\textwidth}
-	    \underline{Knauer (xxx)}
+	    \underline{Knauer (2016)}
 	    \begin{itemize}
         	\item Switzerland
         	\item Monitoring
         	\item Grab sampling \vspace{1.2em}
-        	\item \% LOQ: 
-        	\end{itemize}
+        	\item Pesticides
+        	\item Chlorpyrifos + Herb + Fung
+        	\item no model
+        \end{itemize}
 	\end{columns}
 \end{frame}
 
@@ -725,6 +789,12 @@
 	\begin{adjustbox}{max totalsize={\textwidth}{0.95\textheight}}
 				\input{figs/tikz/ap_rac2.tikz}
 	\end{adjustbox}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Analysed compound spectra by state}
+	    	\includegraphics[width=\textwidth]{figs/spectra.pdf}
 \end{frame}
 
 
@@ -790,8 +860,6 @@
 \begin{frame}
 \frametitle{Risk Mitigation Measures}
 	    	    	\includegraphics[height=0.8\textheight]{figs/bereswill_2014_fig1.png}
-
-
 \end{frame}
 }
 
@@ -820,7 +888,7 @@
 \setbeamertemplate{frame footer}{Source code to retrieve data and reproduce results: \url{http://uni-ko-ld.de/g7}
 	}
 \begin{frame}
-\frametitle{A global perspective}
+\frametitle{A global perspective (I)}
 	\begin{adjustbox}{max totalsize={\textwidth}{0.92\textheight}}
 				\input{figs/tikz/ap_pers.tikz}
 	\end{adjustbox}
