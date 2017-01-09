@@ -1,6 +1,7 @@
 % -*- program: xelatex -*-
 
-\documentclass[10pt
+\documentclass[
+	10pt
 	]{beamer}
 
 % -----------------------------------------------------------------------------
@@ -72,6 +73,7 @@
 \usetikzlibrary{shapes, arrows, positioning, calc, arrows.meta, snakes}
 \usepackage{adjustbox}
 
+
 % use speaker notes
 \usepackage{pgfpages}
 \setbeameroption{hide notes} % Only slides
@@ -136,6 +138,7 @@
 
 
 
+
 %%% ---------------------------------------------------------------------------
 \section[Environmental Risk Assessment and Environmental Monitoring
 ]{Environmental Risk Assessment (ERA) and Monitoring}
@@ -178,6 +181,7 @@
 			\item Daphnia Test
 			\item Lower Tier 
 			\item \emph{"x out of n survived"}
+			\item $EC_{50}$ / NOEC
 		\end{itemize}
 
 	\column<2->{.49\textwidth}
@@ -185,6 +189,7 @@
 			\item Mesocosm
 			\item Higher Tier 
 			\item \emph{"number of animals"}
+			\item NOEC
 		\end{itemize}
 	\end{columns}
 \end{frame}
@@ -300,7 +305,6 @@
 
 \begin{frame}
 \frametitle{Where are we today?}
-
 	\only<1-2>{Three days earlier...}
 	\input{figs/tikz/glm_timeline2.tikz}
 \end{frame}
@@ -323,12 +327,7 @@
 }
 
 
-
-
-%%% ---------------------------------------------------------------------------
-\section{Exploring Monitoring Data for ERA}
-
-\begin{frame}[noframenumbering]
+\begin{frame}
 \frametitle{Exploring Monitoring Data for ERA}
  \resizebox{11.5cm}{!}{%
 				\input{figs/tikz/overview_chp2.tikz}
@@ -336,11 +335,19 @@
 \end{frame}
 
 
+
+%%% ---------------------------------------------------------------------------
+\section{Exploring Monitoring Data for ERA}
+
+
+{%
+\setbeamertemplate{frame footer}{Brock et al. (2006). Aquatic risks of pesticides, ecological protection goals and common aims in EU legislation. IEAM 2, e20–e46.
+}
 \begin{frame}
 \frametitle{Exposure Assessment \& Environmental Monitoring}
 	\begin{columns}
 	    \column{.49\textwidth}
-	    	\underline{Exposure Assessment}
+	    	\underline{Risk Assessment}
 	    	\begin{itemize}
 	    		\item<1-> prospective
 	    		\item<2-> Plant Protection Products
@@ -357,6 +364,7 @@
 	    	\end{itemize}
 	\end{columns}
 \end{frame}
+}
 
 
 \begin{frame}
@@ -373,8 +381,8 @@
 	\begin{exampleblock}{Hypotheses}
 		\begin{enumerate}
 			\item Agricultural streams show highest concentrations
-			\item Small streams show highest concentration
-			\item Samples at precipitation events  show higher concentration
+			\item Small streams show highest concentrations
+			\item Precipitation at/before sampling increases concentrations
 			\item Highest concentrations in summer
 		\end{enumerate}
 	\end{exampleblock}
@@ -382,7 +390,7 @@
 
 
 \begin{frame}
-\frametitle{Compiled data: Big but inhomogeneous}
+\frametitle{Compiled data: Big, but inhomogeneous}
 	\begin{columns}[T]
 	    \column{.49\textwidth}
 	    	\begin{itemize}
@@ -400,36 +408,62 @@
 \end{frame}
 
 
+
+\begin{frame}
+\frametitle{Analysing chemical concentrations}
+	\begin{itemize}
+		\item Catchment Size (DEM + Authorities)
+		\item Agriculture (ATKIS)
+		\item Weather (DWD)
+		\pause
+		\item Risk Quotient: $RQ = \frac{C}{RAC}$
+		\pause
+		\item concentrations \textless~LOQ (96\% of all measurements)
+		\item Hurdle-model: 
+			\begin{align}
+			RQ_i \sim ZAGA(\mu_i, \sigma, \nu_i) = 
+			  \begin{cases}
+			    (1 - \nu_i)   & \quad  \text{if } y < LOQ \\
+			    \nu_i \times f_{Gamma} (\mu_i, \sigma) & \quad \text{if } y \ge LOQ \\
+			  \end{cases}
+			\end{align}
+	\end{itemize}
+\end{frame}
+
+
+
 \begin{frame}
 \frametitle{Small streams are underrepresented}
 	\includegraphics[width = 0.8\textwidth]{figs/distribution.pdf}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Analysing chemical concentrations}
-	\begin{itemize}
-		\item Risk Quotient: $RQ = \frac{C}{RAC}$
-		\item concentrations \textless~LOQ
-		\item 
-	\end{itemize}
-\end{frame}
-
 
 \begin{frame}
-\frametitle{Results: Factors influencing risk (landscape)}
+\frametitle{Landscape: Factors influencing risk}
 	\includegraphics[width = 1\textwidth]{figs/agri_size_eff.pdf}
 \end{frame}
 
 \begin{frame}
-\frametitle{Results: Factors influencing risk (sampling)}
-
+\frametitle{Sampling: Factors influencing risk}
+	\begin{columns}
+	    \column{.49\textwidth}
+			\resizebox{1.1\textwidth}{!}{%
+				\input{figs/tikz/p_season.tikz}}
+	    \column{.51\textwidth}
+	    	\begin{itemize}
+	    		\item Peak in summer
+	    		\item Increase by \alert{precipitation}
+	    		\item compound specific
+	    		\item concentrations show much higher variability
+	    	\end{itemize}
+	\end{columns}
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{Results: Compounds exceeding risk thresholds}
+\frametitle{Risks: Compounds exceeding risk thresholds}
 	\includegraphics[width = 0.8\textwidth]{figs/compounds.pdf}
 \end{frame}
 
@@ -441,7 +475,7 @@
 	\item Small streams currently \alert{underrepresented}
 	\item \alert{Agriculture} important factor
 	\item \alert{LOQ} gives additional insights
-	\item \alert{Underestimated} risk
+	\item Risk \alert{underestimated} 
 	\item Annual \alert{dynamics}
 	\item \alert{Neonicotinoids} + Chlorpyrifos
 \end{enumerate}
@@ -577,7 +611,7 @@
 
 
 \begin{frame}
-\frametitle{What we learned}
+\frametitle{Recap: What we learned}
 	\metroset{block=fill}
 	\begin{exampleblock}{\checkmark Improving Statistics in ERA}
 		\begin{itemize}
@@ -697,9 +731,9 @@
 		\begin{itemize}
 		\item continuous distribution in $\mathbb{R}^{+}_0$
 		\item censoring \\ (x \textless LOQ )
-		\item<2-> non-linearity \\ (season, trends)
-		\item<2-> dependency \\(spatial, temporal)
-		\item<2-> missing data
+		\item non-linearity \\ (season, trends)
+		\item dependency \\(spatial, temporal)
+		\item missing data
 		\end{itemize}
 	\column{.6\textwidth}
 		\colorbox{white}{\includegraphics<1->[width =\textwidth]{figs/glyph.pdf}}
@@ -730,13 +764,6 @@
 		\item Biodiversity
 		\item Refuge for re-colonisation
 	\end{itemize}
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Dynamics}
-
 \end{frame}
 
 

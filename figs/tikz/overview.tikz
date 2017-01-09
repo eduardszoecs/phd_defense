@@ -87,7 +87,7 @@
 	\node [name = bio, block, 
 		above left = 2cm and 2cm of monit, anchor = north,
 		minimum width=30mm, align = center, text width = 30mm, font=\large,
-		visible on=<5->] {Biology   };
+		visible on=<7->] {Biology   };
 	%% chemical data
 	\node [name = chem, block, 
 		below left = 2cm and 2cm of monit, anchor = south,
@@ -164,11 +164,11 @@
 	\path [line,
 	visible on=<4->] (eff) -| node[pos = 0.4, font = \large]{RAC} (risk);
 	\path [line,
-	visible on=<5->] (monit) |- (bio);
+	visible on=<7->] (monit) |- (bio);
 	\path [line,
 	visible on=<6->] (monit) |- (chem);
 	\path [dashed,
-	visible on=<7->] (risk.south east) edge [line ,bend right = 40]  node [xshift = 10mm, pos =0.2,  below, font = \large, align = center, fill = white] {Approves \\ Substance} (chem);
+	visible on=<5->] (risk.south east) edge [line ,bend right = 40]  node [xshift = 10mm, pos =0.2,  below, font = \large, align = center, fill = white] {Approves \\ Substance} (chem);
 
 	% \path [line, dashed,
 	% visible on=<11->] (chap4) edge [bend left = 15, color=myalert]  (prop);
