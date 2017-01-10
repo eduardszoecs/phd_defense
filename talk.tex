@@ -384,6 +384,7 @@
 			\item Small streams show highest concentrations
 			\item Precipitation at/before sampling increases concentrations
 			\item Highest concentrations in summer
+			% \item Mainly insecticides responsible for risks
 		\end{enumerate}
 	\end{exampleblock}
 \end{frame}
@@ -412,13 +413,9 @@
 \begin{frame}
 \frametitle{Analysing chemical concentrations}
 	\begin{itemize}
-		\item Catchment Size (DEM + Authorities)
-		\item Agriculture (ATKIS)
-		\item Weather (DWD)
-		\pause
-		\item Risk Quotient: $RQ = \frac{C}{RAC}$
 		\pause
 		\item concentrations \textless~LOQ (96\% of all measurements)
+		\pause
 		\item Hurdle-model: 
 			\begin{align}
 			RQ_i \sim ZAGA(\mu_i, \sigma, \nu_i) = 
@@ -427,13 +424,19 @@
 			    \nu_i \times f_{Gamma} (\mu_i, \sigma) & \quad \text{if } y \ge LOQ \\
 			  \end{cases}
 			\end{align}
+		\pause
+		\item Risk Quotient: $RQ = \frac{C}{RAC}$
+		\pause
+		\item Catchment Size (DEM + Authorities)
+		\item Agriculture (ATKIS)
+		\item Weather (DWD)
 	\end{itemize}
 \end{frame}
 
 
 
 \begin{frame}
-\frametitle{Small streams are underrepresented}
+\frametitle{Monitoring: Small streams are underrepresented}
 	\includegraphics[width = 0.8\textwidth]{figs/distribution.pdf}
 \end{frame}
 
@@ -454,8 +457,12 @@
 	    	\begin{itemize}
 	    		\item Peak in summer
 	    		\item Increase by \alert{precipitation}
+			    	\begin{itemize}		
+			    		\item day before sampling
+			    		\item not at day of sampling
+			    	\end{itemize}	
 	    		\item compound specific
-	    		\item concentrations show much higher variability
+	    		\item absolute concentrations show much higher variability
 	    	\end{itemize}
 	\end{columns}
 \end{frame}
@@ -470,15 +477,18 @@
 
 \begin{frame}
 \frametitle{What we learned}
-\begin{enumerate}
-	\item Huge differences between \alert{states}
-	\item Small streams currently \alert{underrepresented}
-	\item \alert{Agriculture} important factor
-	\item \alert{LOQ} gives additional insights
-	\item Risk \alert{underestimated} 
-	\item Annual \alert{dynamics}
-	\item \alert{Neonicotinoids} + Chlorpyrifos
-\end{enumerate}
+	\begin{enumerate}
+		\item Huge differences between \alert{states}
+		\item Small streams currently \alert{underrepresented}
+		\item \alert{Agricultural} sources
+		\item \alert{LOQ} gives additional insights
+			\begin{itemize}
+				\item Annual \alert{dynamics}
+				\item \alert{Precipitation} increases concentrations
+			\end{itemize}
+		\item Risk \alert{underestimated} 
+		\item \alert{Neonicotinoids} + Chlorpyrifos + others
+	\end{enumerate}
 \end{frame}
 
 
@@ -494,11 +504,13 @@
 				}
 \end{frame}
 
-
+{\setbeamertemplate{frame footer}{Ziemann, M., Eren, Y., El-Osta, A., 2016. Gene name errors are widespread in the scientific literature. Genome Biology 17. 
+}
 \begin{frame}
 \frametitle{Biologists \& Chemists face the same problems}
 	\small
 	\centering
+	\pause
 	\textbf{\alert{\underline{Names}}}
 	\begin{columns}[t]
 	\column{.45\textwidth}
@@ -548,9 +560,11 @@
 	2993 taxa
 	\column{.45\textwidth}
 	\centering
-	489 pesticides \\ (+ 590 other organics)
+	489 pesticides
 	\end{columns}
 \end{frame}
+}
+
 
 
 {%
