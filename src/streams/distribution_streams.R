@@ -52,6 +52,15 @@ execGRASS("r.stream.order",
                             direction = "fdir",
                             strahler = 'strahler'))
 
+# make vector of streams for plotting
+execGRASS("r.stream.segment",
+          flags = "overwrite",
+          parameters = list(stream_rast = "strahler",
+                            direction = "fdir",
+                            elevation = "DEM",
+                            segments = "segments",
+                            sectors = "sectors"))
+
 
 # calculate statistics on strahler
 a <- execGRASS("r.stream.stats",
@@ -72,14 +81,7 @@ stats$perc_streams <- stats$num_of_streams / sum(stats$num_of_streams)
 stats$perc_length <- stats$sum_length / sum(stats$sum_length)
 
 
-# make vector of streams for plotting
-execGRASS("r.stream.segment",
-          flags = "overwrite",
-          parameters = list(stream_rast = "strahler",
-                            direction = "fdir",
-                            elevation = "DEM",
-                            segments = "segments",
-                            sectors = "sectors"))
+
 streams <- readVECT("segments")
 streams <- spTransform(streams, CRS("+init=epsg:4326"))
 streamsf <- fortify(streams)
@@ -97,8 +99,8 @@ p1 <- ggmap(map) +
                                  col = factor(s_order), 
                                  group = group),
             size = 1) +
-  scale_color_discrete('Strahler Order')
-
+  scale_color_brewer('Strahler Order', palette = 'Dark2')
+p1
 
 statdf <- melt(stats[, c(1, 4, 5)])
 p_stats <- ggplot(statdf, aes(x = variable, y = value, fill = order)) +
@@ -107,8 +109,12 @@ p_stats <- ggplot(statdf, aes(x = variable, y = value, fill = order)) +
   scale_x_discrete(breaks = c('perc_streams', 'perc_length'),
                    labels = c('Number of Streams', 'Length')) +
   scale_y_continuous(labels = percent) +
+  scale_fill_brewer(palette = 'Dark2') +
   labs(x = '', y = 'Proportion')
+p_stats
+
 
 p <- plot_grid(p1, p_stats, rel_widths = c(2, 1))
+p
 ggsave('/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/streams_distr.pdf', p,
        width = 14, height = 7)

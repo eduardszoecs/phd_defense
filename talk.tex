@@ -163,7 +163,7 @@
 \section{Improving Statistics in ERA}
 
 {%
-\setbeamertemplate{frame footer}{Pic: \url{www.umweltbundesamt.de} (modified)
+\setbeamertemplate{frame footer}{Source: \url{www.umweltbundesamt.de} (modified)
 }
 \begin{frame}
 \frametitle{Experiments in Effect Assessment}
@@ -179,17 +179,17 @@
 	\column<1->{.49\textwidth}
 		\begin{itemize}
 			\item Daphnia Test
-			\item Lower Tier 
+			% \item Lower Tier 
 			\item \emph{"x out of n survived"}
-			\item $EC_{50}$ / NOEC
+			% \item $EC_{50}$ / NOEC
 		\end{itemize}
 
 	\column<2->{.49\textwidth}
 		\begin{itemize}
 			\item Mesocosm
-			\item Higher Tier 
+			% \item Higher Tier 
 			\item \emph{"number of animals"}
-			\item NOEC
+			% \item NOEC
 		\end{itemize}
 	\end{columns}
 \end{frame}
@@ -227,14 +227,13 @@
 		\end{adjustbox}
 		}
 	}
-
-	\vspace*{1cm}
+	\vspace*{0.5cm}
 	\begin{itemize}
 		\item<4-> ignore?
 		\item<5-> transform?
 		\item<6-> non-parametric?
-		\only<7>{\item Generalized Linear Model (GLM)}
-		\only<8->{\item<ale@2-> \alert{Generalized Linear Model (GLM)}}
+		\only<7>{\item Generalised Linear Model (GLM)?}
+		\only<8->{\item<ale@2-> \alert{Generalised Linear Model (GLM)?}}
 	\end{itemize}
 
 \end{frame}
@@ -251,23 +250,20 @@
 \begin{frame}
 \frametitle{A simulation study}
 	\begin{columns}[T]
-	\column<1->{.49\textwidth}
-		\includegraphics[width=\textwidth]{figs/daphnia1.png}
-		\vspace{3.8em}
+	\column{.49\textwidth}
+		\includegraphics[width=\textwidth]{figs/daphnia1.png}\\
+		\vspace{1em}
+		Simulation: 
 		\begin{itemize}
 			\item Count \& Binomial data
-			\item Vary replicates \& Effect size
-			\item Global test \& LOEC
+			\item Vary replicates \& effect sizes
+			\item LM, GLMs, Non-parametric
+			\item Power \& Type I Error
 		\end{itemize}
-	\column<2->{.49\textwidth}
+	\column{.49\textwidth}
 		\begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
 					\input{figs/tikz/p_sim.tikz}
 		\end{adjustbox}
-		\begin{itemize}
-			\item LM
-			\item GLMs
-			\item Non-parametric
-		\end{itemize}
 	\end{columns}
 \end{frame}
 
@@ -306,6 +302,7 @@
 \begin{frame}
 \frametitle{Where are we today?}
 	\only<1-2>{Three days earlier...}
+	\only<3->{	Current state of knowledge:}
 	\input{figs/tikz/glm_timeline2.tikz}
 \end{frame}
 
@@ -340,31 +337,31 @@
 \section{Exploring Monitoring Data for ERA}
 
 
-{%
-\setbeamertemplate{frame footer}{Brock et al. (2006). Aquatic risks of pesticides, ecological protection goals and common aims in EU legislation. IEAM 2, e20–e46.
-}
-\begin{frame}
-\frametitle{Exposure Assessment \& Environmental Monitoring}
-	\begin{columns}
-	    \column{.49\textwidth}
-	    	\underline{Risk Assessment}
-	    	\begin{itemize}
-	    		\item<1-> prospective
-	    		\item<2-> Plant Protection Products
-	    		\item<3-> small waters \\ (1m width, 30cm depth)
-	    		\item<4-> Regulatory Acceptable concentrations (RAC)
-	    	\end{itemize}
-	    \column{.49\textwidth}
-	    	\underline{Chemical Monitoring}
-	    	\begin{itemize}
-	    		\item<1-> retrospective
-	    		\item<2-> All chemicals
-	    		\item<3-> large waters \\ (mainly \textgreater10km\textsuperscript{2})
-	    		\item<4-> Environmental Quality Standards (EQS)
-	    	\end{itemize}
-	\end{columns}
-\end{frame}
-}
+% {%
+% \setbeamertemplate{frame footer}{Brock et al. (2006). Aquatic risks of pesticides, ecological protection goals and common aims in EU legislation. IEAM 2, e20–e46.
+% }
+% \begin{frame}
+% \frametitle{Exposure Assessment \& Environmental Monitoring}
+% 	\begin{columns}
+% 	    \column{.49\textwidth}
+% 	    	\underline{Risk Assessment}
+% 	    	\begin{itemize}
+% 	    		\item<1-> prospective
+% 	    		\item<2-> Plant Protection Products
+% 	    		\item<3-> small waters \\ (1m width, 30cm depth)
+% 	    		% \item<4-> Regulatory Acceptable concentrations (RAC)
+% 	    	\end{itemize}
+% 	    \column{.49\textwidth}
+% 	    	\underline{Chemical Monitoring}
+% 	    	\begin{itemize}
+% 	    		\item<1-> retrospective
+% 	    		\item<2-> All chemicals
+% 	    		\item<3-> large waters \\ (\textgreater10km\textsuperscript{2})
+% 	    		% \item<4-> Environmental Quality Standards (EQS)
+% 	    	\end{itemize}
+% 	\end{columns}
+% \end{frame}
+% }
 
 
 \begin{frame}
@@ -392,14 +389,11 @@
 
 \begin{frame}
 \frametitle{Compiled data: Big, but inhomogeneous}
-	\begin{columns}[T]
+	\begin{columns}
 	    \column{.49\textwidth}
 	    	\begin{itemize}
-	    		\item Federalism
-	    		\item Compilation \& Homogenisation
-	    		\vspace{1em}
 	    		\item 1,766,104 measurements 
-	    		\item 478 pesticides (including metabolites)
+	    		\item 478 pesticides 
 	    		\item 24,743 samples 
 	    		\item 2,301 sites
 	    	\end{itemize}
@@ -414,22 +408,28 @@
 \frametitle{Analysing chemical concentrations}
 	\begin{itemize}
 		\pause
-		\item concentrations \textless~LOQ (96\% of all measurements)
+		\item Concentrations \textless~LOQ (96\% of all measurements)
 		\pause
 		\item Hurdle-model: 
-			\begin{align}
-			RQ_i \sim ZAGA(\mu_i, \sigma, \nu_i) = 
+			\begin{align*}
+			y \sim ZAGA = 
 			  \begin{cases}
-			    (1 - \nu_i)   & \quad  \text{if } y < LOQ \\
-			    \nu_i \times f_{Gamma} (\mu_i, \sigma) & \quad \text{if } y \ge LOQ \\
+			    binomial~GLM   & \quad  \text{if } y < LOQ \\
+			    Gamma~GLM & \quad \text{if } y \ge LOQ \\
 			  \end{cases}
-			\end{align}
+			\end{align*}
 		\pause
-		\item Risk Quotient: $RQ = \frac{C}{RAC}$
+		\item Risk Quotient
+			\begin{itemize}
+				\item $RQ = \frac{C}{RAC}$
+			\end{itemize}
 		\pause
-		\item Catchment Size (DEM + Authorities)
-		\item Agriculture (ATKIS)
-		\item Weather (DWD)
+		\item Predictors
+		    \begin{itemize}
+				\item Catchment Size 
+				\item Agricultural land use
+				\item Precipitation
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
@@ -456,12 +456,14 @@
 	    \column{.51\textwidth}
 	    	\begin{itemize}
 	    		\item Peak in summer
+	    			\begin{itemize}
+	    			    \item compound specific
+	    			\end{itemize}
 	    		\item Increase by \alert{precipitation}
 			    	\begin{itemize}		
 			    		\item day before sampling
 			    		\item not at day of sampling
 			    	\end{itemize}	
-	    		\item compound specific
 	    		\item absolute concentrations show much higher variability
 	    	\end{itemize}
 	\end{columns}
@@ -476,10 +478,10 @@
 
 
 \begin{frame}
-\frametitle{What we learned}
+\frametitle{What we learned from this study}
 	\begin{enumerate}
-		\item Huge differences between \alert{states}
-		\item Small streams currently \alert{underrepresented}
+		\item Differences between \alert{states}
+		\item Small streams are \alert{underrepresented}
 		\item \alert{Agricultural} sources
 		\item \alert{LOQ} gives additional insights
 			\begin{itemize}
@@ -487,7 +489,7 @@
 				\item \alert{Precipitation} increases concentrations
 			\end{itemize}
 		\item Risk \alert{underestimated} 
-		\item \alert{Neonicotinoids} + Chlorpyrifos + others
+		\item \alert{Neonicotinoids} 
 	\end{enumerate}
 \end{frame}
 
@@ -504,8 +506,8 @@
 				}
 \end{frame}
 
-{\setbeamertemplate{frame footer}{Ziemann, M., Eren, Y., El-Osta, A., 2016. Gene name errors are widespread in the scientific literature. Genome Biology 17. 
-}
+% {\setbeamertemplate{frame footer}{Ziemann, M., Eren, Y., El-Osta, A., 2016. Gene name errors are widespread in the scientific literature. Genome Biology 17. 
+% }
 \begin{frame}
 \frametitle{Biologists \& Chemists face the same problems}
 	\small
@@ -514,9 +516,9 @@
 	\textbf{\alert{\underline{Names}}}
 	\begin{columns}[t]
 	\column{.45\textwidth}
-	\emph{Osmia rufa, Osmia bicornis, Osmia ruffa, Osmia unilandauis, Osmia spec.} 
+	\emph{Osmia rufa, Osmia bicornis, Osmia ruffa, Osmia unilandauis} 
 	\column{.45\textwidth}
-	Chlorpyrifos, Chlorpyriphos, Chlorphyrifos, Chlorpyrifos-ethyl, Chlorpypifot
+	Chlorpyrifos, Chlorpyriphos, Chlorphyrifos, Chlorpypifot
 	\end{columns}
 	\pause
 
@@ -560,10 +562,10 @@
 	2993 taxa
 	\column{.45\textwidth}
 	\centering
-	489 pesticides
+	478 pesticides
 	\end{columns}
 \end{frame}
-}
+% }
 
 
 
@@ -604,11 +606,11 @@
 \begin{frame}
 \frametitle{taxize \& webchem: Advances for you (researchers)}
 	\begin{enumerate}
-		\item saving of time % data cleaning takes 80% of resources
+		\item save time % data cleaning takes 80% of resources
 		\item less errors
 		\item reproducibility
-		\item join different data sets
-		\item easy aggregations
+		\item joins
+		\item aggregations
 	\end{enumerate}
 \end{frame}
 
@@ -625,7 +627,7 @@
 
 
 \begin{frame}
-\frametitle{Recap: What we learned}
+\frametitle{Recap: What we learned from my PhD Thesis}
 	\metroset{block=fill}
 	\begin{exampleblock}{\checkmark Improving Statistics in ERA}
 		\begin{itemize}
@@ -761,7 +763,7 @@
 		% \item[shiny app: ]{\url{http://139.14.11.23:3838/teaching/zaga/}}
 		\item[shiny app: ]{\url{http://uni-ko-ld.de/g4}}
 	\end{description}
-	\includegraphics[width=\textwidth]{figs/zaga_mods.pdf}
+	\includegraphics[width=1.1\textwidth]{figs/zaga_mods.pdf}
 \end{frame}
 
 
@@ -770,7 +772,8 @@
 	  \includegraphics[width=\textwidth]{figs/width_size.pdf}
 \end{frame}
 
-
+{\setbeamertemplate{frame footer}{Biggs et al. (2016). The importance of small waterbodies for biodiversity and ecosystem services: implications for policy makers. Hydrobiologia. DOI: 10.1007/s10750-016-3007-0. 
+}
 \begin{frame}
 \frametitle{Importance of small streams}
 	\includegraphics[width=\textwidth]{figs/streams_distr.pdf}
@@ -779,6 +782,18 @@
 		\item Refuge for re-colonisation
 	\end{itemize}
 \end{frame}
+}
+
+\begin{frame}
+\frametitle{Precipitation in Germany and the samples}
+	\begin{columns}
+	    \column{.49\textwidth}
+	    	\includegraphics[width=1.1\textwidth, keepaspectratio]{figs/precip_map.pdf}
+	    \column{.49\textwidth}
+	    	    	\includegraphics[width=1.1\textwidth, keepaspectratio]{figs/precip_comp.pdf}
+	\end{columns}
+\end{frame}
+
 
 
 \begin{frame}
@@ -826,7 +841,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{RACs by Compound (Add Stehle to plot...)}
+\frametitle{RACs by Compound}
 	\begin{adjustbox}{max totalsize={\textwidth}{0.95\textheight}}
 				\input{figs/tikz/ap_rac2.tikz}
 	\end{adjustbox}
@@ -947,7 +962,7 @@
 	}
 \begin{frame}
 \frametitle{A global perspective (II)}
-	\includegraphics[width=\textwidth, keepaspectratio]{figs/pop_mort.png}
+	\includegraphics[width=1.1\textwidth, keepaspectratio]{figs/pop_mort.png}
 	% Child mortality stands also for health and wealth.
 	% Increase both and the population growth will likely decrease
 	% Pesticides probably needed, as there are also losses due to pests
