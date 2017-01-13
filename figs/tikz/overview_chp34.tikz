@@ -114,7 +114,7 @@
 	\path [line] (eff) -| node[pos = 0.4, font = \large]{RAC} (risk);
 	\path [line] (monit) |- (bio);
 	\path [line] (monit) |- (chem);
-	\path [dashed] (risk.south east) edge [line ,bend right = 40]  node [xshift = 10mm, pos =0.2,  below, font = \large, align = center, fill = white] {Approves \\ Substance} (chem);
+	\path [dashed] (risk.south east) edge [line ,bend right = 40]  node [xshift = 0mm, yshift = -7mm, pos =0.1,  below, font = \large, align = center] {Approves \\ Substance} (chem);
 	\path [dashed] ([yshift=5mm]bio.south west) edge[line, bend left = -10]   ([yshift=0mm]risk.north east);
     \path [dashed] (chap3.north west) edge [line, bend right = 30] node[xshift = 20mm, yshift =9mm, font = \large, align = center] {Retrospection}  (risk);
     \path [line, dashed] (chap4) edge [bend left = 15, color=myalert]  (prop);

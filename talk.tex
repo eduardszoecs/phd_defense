@@ -208,7 +208,7 @@
 		\end{adjustbox}
 		\begin{itemize}
 			\item \emph{"x out of n survived"}
-			\onslide<3->{\item<ale@3-> \alert{binomial data}}
+			% \onslide<3->{\item<ale@3-> \alert{binomial data}}
 		\end{itemize}
 	\column{.49\textwidth}
 		\center
@@ -217,7 +217,7 @@
 		\end{adjustbox}
 		\begin{itemize}
 			\item \emph{"number of animals"}
-			\onslide<3->{\item<ale@3-> \alert{count data}}
+			% \onslide<3->{\item<ale@3-> \alert{count data}}
 		\end{itemize}
 	\end{columns}
 
@@ -229,11 +229,11 @@
 	}
 	\vspace*{0.5cm}
 	\begin{itemize}
-		\item<4-> ignore?
-		\item<5-> transform?
-		\item<6-> non-parametric?
-		\only<7>{\item Generalised Linear Model (GLM)?}
-		\only<8->{\item<ale@2-> \alert{Generalised Linear Model (GLM)?}}
+		\item<3-> ignore?
+		\item<4-> transform?
+		\item<5-> non-parametric?
+		\only<6>{\item Generalised Linear Model (GLM)?}
+		\only<7->{\item<ale@2-> \alert{Generalised Linear Model (GLM)?}}
 	\end{itemize}
 
 \end{frame}
@@ -252,7 +252,7 @@
 	\begin{columns}[T]
 	\column{.49\textwidth}
 		\includegraphics[width=\textwidth]{figs/daphnia1.png}\\
-		\vspace{1em}
+		\vspace{2em}
 		Simulation: 
 		\begin{itemize}
 			\item Count \& Binomial data
@@ -388,6 +388,36 @@
 
 
 \begin{frame}
+\frametitle{Analysing chemical concentrations}
+	\begin{itemize}
+		\pause
+		\item Concentrations \textless~LOQ (96\% of all measurements)
+		\pause
+		\item Hurdle-model: 
+			\begin{align*}
+			y \sim ZAGA = 
+			  \begin{cases}
+			    Binomial~GLM   & \quad  \text{if } y < LOQ \\
+			    Gamma~GLM & \quad \text{if } y \ge LOQ \\
+			  \end{cases}
+			\end{align*}
+		\pause
+		\item Risk Quotient
+			\begin{itemize}
+				\item \large $RQ = \frac{C}{RAC}$
+			\end{itemize}
+		\pause
+		\item Predictors
+		    \begin{itemize}
+				\item Catchment Size 
+				\item Agricultural land use
+				\item Precipitation
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
 \frametitle{Compiled data: Big, but inhomogeneous}
 	\begin{columns}
 	    \column{.49\textwidth}
@@ -403,38 +433,6 @@
 \end{frame}
 
 
-
-\begin{frame}
-\frametitle{Analysing chemical concentrations}
-	\begin{itemize}
-		\pause
-		\item Concentrations \textless~LOQ (96\% of all measurements)
-		\pause
-		\item Hurdle-model: 
-			\begin{align*}
-			y \sim ZAGA = 
-			  \begin{cases}
-			    binomial~GLM   & \quad  \text{if } y < LOQ \\
-			    Gamma~GLM & \quad \text{if } y \ge LOQ \\
-			  \end{cases}
-			\end{align*}
-		\pause
-		\item Risk Quotient
-			\begin{itemize}
-				\item $RQ = \frac{C}{RAC}$
-			\end{itemize}
-		\pause
-		\item Predictors
-		    \begin{itemize}
-				\item Catchment Size 
-				\item Agricultural land use
-				\item Precipitation
-			\end{itemize}
-	\end{itemize}
-\end{frame}
-
-
-
 \begin{frame}
 \frametitle{Monitoring: Small streams are underrepresented}
 	\includegraphics[width = 0.8\textwidth]{figs/distribution.pdf}
@@ -444,6 +442,10 @@
 
 \begin{frame}
 \frametitle{Landscape: Factors influencing risk}
+	\begin{itemize}
+		\item 25\% of sites with at least one concentration > RAC
+		\item 50\% of sites with at least one concentration > RAC / 10
+	\end{itemize}
 	\includegraphics[width = 1\textwidth]{figs/agri_size_eff.pdf}
 \end{frame}
 
@@ -497,8 +499,6 @@
 
 %%% ---------------------------------------------------------------------------
 \section{Solutions for Data Handling in ERA}
-
-
 \begin{frame}[noframenumbering]
 \frametitle{Solutions for Data Handling in ERA}
  \resizebox{11.5cm}{!}{%
@@ -574,9 +574,9 @@
 }
 \begin{frame}{}
 \frametitle{Instead of wasting time...}
-... use \alert{webchem}! \\
+... use \alert{webchem}! \\	\vspace*{-0.5cm}
 	\hspace*{2cm}
-	\begin{adjustbox}{max totalsize={\textwidth}{0.8\textheight}}
+	\begin{adjustbox}{max totalsize={\textwidth}{0.9\textheight}}
 				\input{figs/tikz/webchem.tikz}
 	\end{adjustbox}
 
@@ -603,16 +603,16 @@
 }
 
 
-\begin{frame}
-\frametitle{taxize \& webchem: Advances for you (researchers)}
-	\begin{enumerate}
-		\item save time % data cleaning takes 80% of resources
-		\item less errors
-		\item reproducibility
-		\item joins
-		\item aggregations
-	\end{enumerate}
-\end{frame}
+% \begin{frame}
+% \frametitle{taxize \& webchem: Advances for you (researchers)}
+% 	\begin{enumerate}
+% 		\item save time % data cleaning takes 80% of resources
+% 		\item less errors
+% 		\item reproducibility
+% 		\item joins
+% 		\item aggregations
+% 	\end{enumerate}
+% \end{frame}
 
 
 %%% ---------------------------------------------------------------------------
@@ -641,7 +641,7 @@
 	\begin{exampleblock}{\checkmark Exploring Monitoring Data for ERA}
 		\begin{itemize}
 			\item Risk drivers and dynamics
-			\item Agricultural small streams at risk \& neglected
+			\item Agricultural small streams neglected \& at risk
 			\item Neonicotinoids
 			\item Feedback for ERA
 		\end{itemize}
@@ -656,17 +656,6 @@
 	\end{exampleblock}
 \end{frame}
 
-\begin{frame}
-\frametitle{Many Thanks To}
-	\begin{itemize}
-		\item My supervisor \alert{Prof. Dr. Ralf. B. Schäfer} (for his support, openness, opportunities \& discussions)
-		\item My \alert{colleagues \& collaborators} (to many to list here)
-		\item \alert{{G}erman Environment Agency} (for funding \& collab)
-		\item My parents \alert{Anca \& Helmut} (for their support)
-		\item My girlfriend \alert{Anja} (for everything)
-	\end{itemize}
-
-\end{frame}
 
 
 %%% ---------------------------------------------------------------------------
@@ -884,6 +873,20 @@
 \end{frame}
 
 
+{%
+\setbeamertemplate{frame footer}{Modified from: Stehle, Schulz (2015). Agricultural insecticides threaten surface waters at the global scale. PNAS 112, 5750–5755.
+}
+\begin{frame}
+\frametitle{Effects of RAC exceedances}
+			\begin{itemize}
+				\item RACs should never be exceeded (protection goal)
+				\item If so, biological effects likely
+			\end{itemize}
+	    	    	\includegraphics[height=0.7\textheight]{figs/stehle_pnas_2015_mod.png}
+\end{frame}
+}
+
+
 
 \begin{frame}
 \frametitle{Reasons for observed RAC exceedances}
@@ -993,6 +996,17 @@ Best practices for Software:
 	\end{itemize}
 \end{frame}
 }
+
+\begin{frame}
+\frametitle{Many Thanks To}
+	\begin{itemize}
+		\item My supervisor \alert{Prof. Dr. Ralf. B. Schäfer} (for his support, openness, opportunities \& discussions)
+		\item My \alert{colleagues \& collaborators} (to many to list here)
+		\item \alert{{G}erman Environment Agency} (for funding \& collab)
+		\item My parents \alert{Anca \& Helmut} (for their support)
+		\item My girlfriend \alert{Anja} (for everything)
+	\end{itemize}
+\end{frame}
 
 
 % ------------------------------

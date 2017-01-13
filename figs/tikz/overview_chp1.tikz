@@ -102,6 +102,6 @@
 	\path [line] (eff) -| node[pos = 0.4, font = \large]{RAC} (risk);
 	\path [line] (monit) |- (bio);
 	\path [line] (monit) |- (chem);
-	\path [dashed] (risk.south east) edge [line ,bend right = 40]  node [xshift = 10mm, pos =0.2,  below, font = \large, align = center, fill = white] {Approves \\ Substance} (chem);
+	\path [dashed] (risk.south east) edge [line ,bend right = 40]  node [xshift = 0mm, yshift = -7mm, pos =0.1,  below, font = \large, align = center] {Approves \\ Substance} (chem);
 
 \end{tikzpicture}
