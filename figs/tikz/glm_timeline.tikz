@@ -53,48 +53,48 @@
  visible on=<2>
 ] (ohara) at (\yearposx{(2010-1990)*1cm}, 5)  {\includegraphics[width=10cm]{/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/glm_hist/ohara_2010.png}};
 
-	% warton & Hui
-    \node [ text=myalert,
- visible on=<3>
-] at (\yearposx{(2011-1990)*1cm}, 0) [rotate=90,anchor=east] {2011};
-    \node [ 
- visible on=<4->
-] at (\yearposx{(2011-1990)*1cm}, 0) [rotate=90,anchor=east] {2011};
-	\draw  [ 
- visible on=<3->
-] (\yearposx{(2011-1990)*1cm}, 3pt) --  (\yearposx{(2011-1990)*1cm}, -3pt);
-    \node [ 
- visible on=<3>
-] (ohara) at (\yearposx{(2010-1990)*1cm}, 5)  {\includegraphics[width=10cm]{/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/glm_hist/warton_2011.png}};
+% 	% warton & Hui
+%     \node [ text=myalert,
+%  visible on=<3>
+% ] at (\yearposx{(2011-1990)*1cm}, 0) [rotate=90,anchor=east] {2011};
+%     \node [ 
+%  visible on=<4->
+% ] at (\yearposx{(2011-1990)*1cm}, 0) [rotate=90,anchor=east] {2011};
+% 	\draw  [ 
+%  visible on=<3->
+% ] (\yearposx{(2011-1990)*1cm}, 3pt) --  (\yearposx{(2011-1990)*1cm}, -3pt);
+%     \node [ 
+%  visible on=<3>
+% ] (ohara) at (\yearposx{(2010-1990)*1cm}, 5)  {\includegraphics[width=10cm]{/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/glm_hist/warton_2011.png}};
 
 	% warton mvglm
     \node [ text=myalert,
- visible on=<4>
+ visible on=<3>
 ] at (\yearposx{(2012-1990)*1cm}, 0) [rotate=90,anchor=east] {2012};
     \node [ 
- visible on=<5->
+ visible on=<4->
 ] at (\yearposx{(2012-1990)*1cm}, 0) [rotate=90,anchor=east] {2012};
 	\draw  [ 
- visible on=<4->
+ visible on=<3->
 ] (\yearposx{(2012-1990)*1cm}, 3pt) --  (\yearposx{(2012-1990)*1cm}, -3pt);
     \node [ 
- visible on=<4>
+ visible on=<3>
 ] (ohara) at (\yearposx{(2010-1990)*1cm}, 5)  {\includegraphics[width=10cm]{/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/glm_hist/warton_2012.png}};
 
 	% Szoecs, mesocosm
     \node [ text=myalert,
- visible on=<5->
+ visible on=<4->
 ] at (\yearposx{(2015-1990)*1cm}, 0) [rotate=90,anchor=east] {2015};
 	\draw  [ 
- visible on=<5->
+ visible on=<4->
 ] (\yearposx{(2015-1990)*1cm}, 3pt) --  (\yearposx{(2015-1990)*1cm}, -3pt);
     \node [ 
- visible on=<5>
+ visible on=<4>
 ] (ohara) at (\yearposx{(2010-1990)*1cm}, 5)  {\includegraphics[width=10cm]{/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/glm_hist/Szoecs_2015.png}};
 
 	% Szoecs, normal
     \node [ 
- visible on=<6>
+ visible on=<5>
 ] (ohara) at (\yearposx{(2010-1990)*1cm}, 5)  {\includegraphics[width=10cm]{/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/glm_hist/Szoecs_2015_notnormal.png}};
 
 
