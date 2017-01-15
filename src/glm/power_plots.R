@@ -239,7 +239,7 @@ p_pow_xkcd <- ggplot(pow_glob_c) +
   # axes
   labs(x = expression('Effect size'),
        y = 'Power') +
-  scale_y_continuous(breaks = c(0, 0.5, 0.8, 1), labels = c('0', '50', '80', '100')) +
+  scale_y_continuous(breaks = c(0, 0.3, 0.8, 1), labels = c('0', '30', '80', '100')) +
   scale_x_continuous(breaks = c(1.5, 6.5), labels = c('small', 'big')) +
   scale_color_manual('Model',
                      breaks = c("lm", "glm_nb", "glm_pb", "glm_qp", "np"),
