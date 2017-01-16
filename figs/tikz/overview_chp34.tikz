@@ -30,10 +30,10 @@
 % clip figure
 \clip(-1.5,-11.5) rectangle (22.6,5);
 
-% % % % grid for coordinates for clip
-% \draw[help lines,xstep=1,ystep=1] (-2,-13) grid (30,6.5);
-% \foreach \x in {-2,-1,...,30} { \node [anchor=north] at (\x,0) {\x}; }
-% \foreach \y in {-13,-12,...,6} { \node [anchor=east] at (0,\y) {\y}; }
+% % % grid for coordinates for clip
+\draw[help lines,xstep=1,ystep=1] (-2,-13) grid (30,6.5);
+\foreach \x in {-2,-1,...,30} { \node [anchor=north] at (\x,0) {\x}; }
+\foreach \y in {-13,-12,...,6} { \node [anchor=east] at (0,\y) {\y}; }
 
 
 % Nodes
@@ -55,22 +55,25 @@
 		below = 20mm of eff] {} ;
 	\node[textbf, above=-2mm of expo, anchor = north]{Exposure};
 
-	%% Risk Assessment
-	\node [name = risk, block, below right=0.75cm and 1cm of stat,
-       minimum width=45mm, 
-		minimum height=2.5cm, 
-		font = \bf\large,
-		align = center,
-       text width = 3cm] {Environmental Risk\\  Assessment};
-
 	%% Monitoring data
 	\node [name = monit, block, 
-		right = 9cm of risk,
+		right = 7.5cm of risk,
         minimum width=35mm, 
 		minimum height=20mm, 
 		font = \bf\large,
 		align = center,
-        text width = 3cm] {Environmental\\ Monitoring};
+        text width = 3.5cm,
+        visible on=<1->] {Environmental\\ Monitoring};
+
+
+	%% Risk Assessment
+	\node [name = risk, block, below right=0.6cm and 1cm of stat,
+       minimum width=45mm, 
+		minimum height=2.5cm, 
+		font = \bf\large,
+		align = center,
+       text width = 3cm,
+       visible on=<1->] {Environmental Risk\\  Assessment};
 
 	%% biological data
 	\node [name = bio, block, 
@@ -82,9 +85,12 @@
 		minimum width=3cm, font=\large,text width = 30mm] { Chemistry};
 
 	%% Legislation
-   \node[name=dir, above= 25mm of eff, font=\Large, text width = 60mm, fill = ao, text=white, xshift=10mm]{\textbf{Plant Protection Products Regulation 1107/2009}};
-   \node[name=wfd, right= 90mm of dir, font=\Large, text width = 65mm, 
-   fill = ao, text=white]{\textbf{Water Framework Directive 2000/60/EC}};
+   \node[name=dir, above= 10mm of eff, font=\large, text width = 60mm, fill = ao, text=white, xshift=10mm,
+   visible on=<1->]{\textbf{Plant Protection Products Regulation 1107/2009}};
+   \node[name=wfd, right= 80mm of dir, font=\large, text width = 65mm, 
+   fill = ao, text=white,
+   visible on=<1->]{\textbf{Water Framework Directive 2000/60/EC}};
+
 
   %% Papers
   	\node[name = chap2, paper, 
@@ -100,11 +106,11 @@
 	\node[name = chap4a, paper, 
 		below = 33mm of expo, 
 		anchor = east]{3};	
-	\node[name = chap4t, right = 5mm of chap4a, font = \bf\large, color = myalert, text width = 200mm]{Szöcs \& Schäfer (accepted). “webchem: An R Package to Retrieve Chemical Information from the Web”. Journal of Statistical Software.};
+	\node[name = chap4t, right = 5mm of chap4a, font = \bf\normalsize, color = myalert, text width = 200mm]{Szöcs \& Schäfer (accepted). “webchem: An R Package to Retrieve Chemical Information from the Web”. Journal of Statistical Software.};
 
 	\node[name = chap5a, paper, 
 		below = -3mm of chap4a]{4};	
-	\node[name = chap5t, right = 5mm of chap5a, font = \bf\large, color = myalert, text width = 200mm]{Chamberlain \& Szöcs (2013). “taxize: taxonomic search and retrieval in R”. F1000Research 2(191).};
+	\node[name = chap5t, right = 5mm of chap5a, font = \bf\normalsize, color = myalert, text width = 200mm]{Chamberlain \& Szöcs (2013). “taxize: taxonomic search and retrieval in R”. F1000Research 2(191).};
 	
 
 % arrows
@@ -114,7 +120,8 @@
 	\path [line] (eff) -| node[pos = 0.4, font = \large]{RAC} (risk);
 	\path [line] (monit) |- (bio);
 	\path [line] (monit) |- (chem);
-	\path [dashed] (risk.south east) edge [line ,bend right = 40]  node [xshift = 0mm, yshift = -7mm, pos =0.1,  below, font = \large, align = center] {Approves \\ Substance} (chem);
+	\path [dashed,
+	visible on=<1->] (risk.south east) edge [line ,bend right = 40]  node [xshift = -2mm, yshift = -7mm, pos =0.1, below, font = \large, align = center] {Approves \\ Substance} (chem);
 	\path [dashed] ([yshift=5mm]bio.south west) edge[line, bend left = -10]   ([yshift=0mm]risk.north east);
     \path [dashed] (chap3.north west) edge [line, bend right = 30] node[xshift = 20mm, yshift =9mm, font = \large, align = center] {Retrospection}  (risk);
     \path [line, dashed] (chap4) edge [bend left = 15, color=myalert]  (prop);

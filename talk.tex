@@ -1,7 +1,7 @@
 % -*- program: xelatex -*-
 
 \documentclass[
-	10pt
+	12pt
 	]{beamer}
 
 % -----------------------------------------------------------------------------
@@ -114,13 +114,17 @@
 \begin{frame}[t]
 \frametitle{Freshwater biodiversity is strongly declining}
 	\begin{columns}[T]
-	\column{.66\textwidth}
+	\column{.63\textwidth}
 		\onslide<1->{
-			\resizebox{\textwidth}{!}{%
-						\input{figs/tikz/lpi.tikz}
-						}
+			% \resizebox{1.1\textwidth}{!}{%
+			% 			\hspace{-5mm}\input{figs/tikz/lpi.tikz}
+			% 			}
+
+			\hspace{-7mm}\begin{adjustbox}{max totalsize={1.1\textwidth}{\textheight}}
+				\input{figs/tikz/lpi.tikz}
+			\end{adjustbox}
 		}
-	\column{.33\textwidth}
+	\column{.37\textwidth}
 		\onslide<2->{
 			\vspace{3em} 
 			\alert{\underline{Reasons}} \\
@@ -143,20 +147,25 @@
 \section[Environmental Risk Assessment and Environmental Monitoring
 ]{Environmental Risk Assessment (ERA) and Monitoring}
 
+\begingroup
+\footnotesize % = 10pt in 12pt default
 \begin{frame}
 \frametitle{Environmental Risk Assessment and Monitoring}
- \resizebox{11.5cm}{!}{%
-				\input{figs/tikz/overview.tikz}
-				}
+    \vspace*{5mm}
+	\resizebox{1.1\textwidth}{!}{
+		\hspace*{-20mm}\input{figs/tikz/overview.tikz}
+	}
 \end{frame}
 
 
 \begin{frame}[noframenumbering]
 \frametitle{Improving Statistics in ERA}
- \resizebox{11.5cm}{!}{%
-				\input{figs/tikz/overview_chp1.tikz}
-				}
+    \vspace*{5mm}
+	\resizebox{1.1\textwidth}{!}{
+		\hspace*{-20mm}\input{figs/tikz/overview_chp1.tikz}
+	}
 \end{frame}
+\endgroup
 
 
 %%% ---------------------------------------------------------------------------
@@ -316,19 +325,21 @@
 		\begin{enumerate}
 			\item Choose your model based on data properties
 			\item Fix Type I errors by resampling
-			\item GLMs have better power properties
+			\item GLMs have greater power 
 		\end{enumerate}
 	\end{exampleblock}
 \end{frame}
 }
 
-
+\begingroup
+\footnotesize % = 10pt in 12pt default
 \begin{frame}
 \frametitle{Exploring Monitoring Data for ERA}
  \resizebox{11.5cm}{!}{%
 				\input{figs/tikz/overview_chp2.tikz}
 				}
 \end{frame}
+\endgroup
 
 
 
@@ -493,12 +504,16 @@
 
 %%% ---------------------------------------------------------------------------
 \section{Solutions for Data Handling in ERA}
+
+\begingroup
+\footnotesize % = 10pt in 12pt default
 \begin{frame}[noframenumbering]
 \frametitle{Solutions for Data Handling in ERA}
  \resizebox{11.5cm}{!}{%
 				\input{figs/tikz/overview_chp34.tikz}
 				}
 \end{frame}
+\endgroup
 
 % {\setbeamertemplate{frame footer}{Ziemann, M., Eren, Y., El-Osta, A., 2016. Gene name errors are widespread in the scientific literature. Genome Biology 17. 
 % }
@@ -566,17 +581,19 @@
 {%
 \setbeamertemplate{frame footer}{Münch et al. (2016). DoOR 2.0 - Comprehensive Mapping of Drosophila melanogaster Odorant Responses. Scientific Reports 6, 21841
 }
+\begingroup
+\footnotesize % = 10pt in 12pt default
 \begin{frame}{}
 \frametitle{Instead of wasting time...}
 ... use \alert{webchem}! \\	\vspace*{-0.5cm}
 	\hspace*{2cm}
-	\begin{adjustbox}{max totalsize={\textwidth}{0.9\textheight}}
-				\input{figs/tikz/webchem.tikz}
-	\end{adjustbox}
-
+		\begin{adjustbox}{max totalsize={1.1\textwidth}{0.9\textheight}}
+					\input{figs/tikz/webchem.tikz}
+		\end{adjustbox}
 \pause
 \vspace*{-1cm}\emph{''\alert{webchem} ...likely saved hundreds of working hours''}
 \end{frame}
+\endgroup
 }
 
 
@@ -612,13 +629,15 @@
 %%% ---------------------------------------------------------------------------
 \section*{Recap}
 
+\begingroup
+\footnotesize % = 10pt in 12pt default
 \begin{frame}
 \frametitle{Recap: What did I look at?}
  \resizebox{11.5cm}{!}{%
 				\input{figs/tikz/overview_recap.tikz}
 				}
 \end{frame}
-
+\endgroup
 
 \begin{frame}
 \frametitle{Recap: What we learned from my PhD Thesis}

@@ -12,7 +12,7 @@
 \tikzstyle{circ} = [circle, draw, text = black,   line width=1pt, 
     text width=4cm, text centered, scale=1, font=\bf\huge]
 \tikzstyle{rect} = [rectangle, draw, text = black, line width=1pt,
-    text width=5cm, text centered, rounded corners, minimum height=1.5cm, minimum width=1cm, font=\bf\huge]
+    text width=5.5cm, text centered, rounded corners, minimum height=1.5cm, minimum width=1cm, font=\bf\huge]
 
 \tikzstyle{line} = [draw, -{Latex[length=5mm,width=3mm]}, line width=1mm, opacity = 0.8]
 
