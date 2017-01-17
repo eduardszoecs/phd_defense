@@ -8,7 +8,7 @@
     text width=5em, text centered, rounded corners, minimum height=4em]
 % papers
 \tikzstyle{paper} = [circle, draw, fill=myalert,  font = \bf\LARGE, minimum width=1.5cm]
-\tikzstyle{textbf} = [text centered, font = \bf\Large]
+\tikzstyle{textbf} = [text centered, font = \bf\large]
 
 % http://tex.stackexchange.com/questions/55806/mindmap-tikzpicture-in-beamer-reveal-step-by-step/55849#55849
 % overlays etc in tikz
@@ -27,13 +27,13 @@
 \begin{tikzpicture}[node distance = 2cm, auto]
 	
 % clip figure
-\clip(-1.5,-8.5) rectangle (21,3.5);
+\clip(-1.5,-10.5) rectangle (21,3.5);
 
 
-% % % % % % % grid for coordinates for clip
-% \draw[help lines,xstep=1,ystep=1] (-2,-13) grid (30,6.5);
-% \foreach \x in {-2,-1,...,30} { \node [anchor=north] at (\x,0) {\x}; }
-% \foreach \y in {-13,-12,...,6} { \node [anchor=east] at (0,\y) {\y}; }
+% % % % % % grid for coordinates for clip
+\draw[help lines,xstep=1,ystep=1] (-2,-13) grid (30,6.5);
+\foreach \x in {-2,-1,...,30} { \node [anchor=north] at (\x,0) {\x}; }
+\foreach \y in {-13,-12,...,6} { \node [anchor=east] at (0,\y) {\y}; }
 
 
 % Nodes
@@ -169,7 +169,7 @@
 	\path [line,
 	visible on=<6->] (monit) |- (chem);
 	\path [dashed,
-	visible on=<5->] (risk.south east) edge [line ,bend right = 40]  node [xshift = -2mm, yshift = -7mm, pos =0.1, below, font = \large, align = center] {Approves \\ Substance} (chem);
+	visible on=<5->] (risk.south east) edge [line ,bend right = 40]  node [xshift = -4mm, yshift = -7mm, pos =0.1, below, font = \large, align = center] {Approves \\ Substance} (chem);
 
 	% \path [line, dashed,
 	% visible on=<11->] (chap4) edge [bend left = 15, color=myalert]  (prop);
@@ -186,4 +186,15 @@
 
  \node[text=myalert,anchor=base,inner sep=0pt, outer sep=0pt, scale=8, font=\bf, rotate=20,
  visible on=<8->] at (10, -3) {Data everywhere};
+
+	\node[name = PECabbrv, 
+		below left = 30mm and -2mm of expo, 
+		font=\normalsize, 
+		anchor = west,
+		visible on=<3->]{\textbf{RAC:}~~Regulatory Acceptable Concentration};	
+	\node[name = RACabbrv, 
+		below = 0mm of PECabbrv, xshift = -2mm, 
+		font=\normalsize, 
+		anchor = north,
+		visible on=<4->]{\textbf{PEC:}~~Predicted Environmental Concentration};	
 \end{tikzpicture}

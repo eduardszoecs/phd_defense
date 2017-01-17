@@ -67,6 +67,7 @@
 \usepackage{fontspec}
 \usepackage{fontawesome}      %
 \usepackage{pifont}
+
 % Graphics
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -231,7 +232,7 @@
 	\end{columns}
 
 	\onslide<2->{
-		\Put(85,50){\begin{adjustbox}{max totalsize={0.9\textwidth}{0.4\textheight}}
+		\Put(90,45){\begin{adjustbox}{max totalsize={0.9\textwidth}{0.4\textheight}}
 			\input{figs/tikz/pn_fin.tikz}
 		\end{adjustbox}
 		}
@@ -249,11 +250,18 @@
 
 
 
-\begin{frame}
-\frametitle{A recent history (uncomprehensive) of GLM in ecology}
-	\input{figs/tikz/glm_timeline.tikz}
-\end{frame}
+% \begin{frame}
+% \frametitle{A recent history (uncomprehensive) of GLM in ecology}
+% 	\input{figs/tikz/glm_timeline.tikz}
+% \end{frame}
 
+
+\begin{frame}
+\frametitle{Discussion on GLM + GLM short intro}
+	% \input{figs/tikz/glm_timeline.tikz}
+	% o'hara, Warton, discussionon GLM vs LM
+	% but also for ecotoxicological experiments?
+\end{frame}
 
 
 \begin{frame}
@@ -301,27 +309,20 @@
 		\begin{enumerate}
 			\item Negative-binomial GLM show increased \alert{Type I errors}
 			\item Can be fixed via \alert{bootstrap}
-			\item Ecotoxicological experiments commonly \alert{low power} 
 			\item \alert{GLMs} can increase this  power
+			\item Ecotoxicological experiments commonly \alert{low power} 
 		\end{enumerate}
 \end{frame}
 
 
+
 \begin{frame}
 \frametitle{Where are we today?}
-	\only<1-2>{Three days earlier...}
-	\only<3->{	Current state of knowledge:}
-	\input{figs/tikz/glm_timeline2.tikz}
-\end{frame}
-
-
-{%
-\setbeamertemplate{frame footer}{Warton, D.I., Lyons, M., Stoklosa, J., Ives, A.R., 2016. Three points to consider when choosing a LM or GLM test for count data. Methods in Ecology and Evolution 7, 882–890.
-}
-\begin{frame}
-\frametitle{Where are we today?}
-	% \metroset{block=fill}
-	\begin{exampleblock}{Three points to consider ...}
+	\includegraphics[width=\textwidth]{figs/tikz/glm_hist/warton_2016.png}
+	\vspace*{-5mm}
+	\metroset{block=fill}
+	\begin{exampleblock}{State of the art}
+	\pause
 		\begin{enumerate}
 			\item Choose your model based on data properties
 			\item Fix Type I errors by resampling
@@ -329,15 +330,18 @@
 		\end{enumerate}
 	\end{exampleblock}
 \end{frame}
-}
+
+
+
 
 \begingroup
 \footnotesize % = 10pt in 12pt default
 \begin{frame}
 \frametitle{Exploring Monitoring Data for ERA}
- \resizebox{11.5cm}{!}{%
-				\input{figs/tikz/overview_chp2.tikz}
-				}
+    \vspace*{5mm}
+	\resizebox{1.1\textwidth}{!}{
+		\hspace*{-20mm}\input{figs/tikz/overview_chp2.tikz}
+	}
 \end{frame}
 \endgroup
 
@@ -347,40 +351,13 @@
 \section{Exploring Monitoring Data for ERA}
 
 
-% {%
-% \setbeamertemplate{frame footer}{Brock et al. (2006). Aquatic risks of pesticides, ecological protection goals and common aims in EU legislation. IEAM 2, e20–e46.
-% }
-% \begin{frame}
-% \frametitle{Exposure Assessment \& Environmental Monitoring}
-% 	\begin{columns}
-% 	    \column{.49\textwidth}
-% 	    	\underline{Risk Assessment}
-% 	    	\begin{itemize}
-% 	    		\item<1-> prospective
-% 	    		\item<2-> Plant Protection Products
-% 	    		\item<3-> small waters \\ (1m width, 30cm depth)
-% 	    		% \item<4-> Regulatory Acceptable concentrations (RAC)
-% 	    	\end{itemize}
-% 	    \column{.49\textwidth}
-% 	    	\underline{Chemical Monitoring}
-% 	    	\begin{itemize}
-% 	    		\item<1-> retrospective
-% 	    		\item<2-> All chemicals
-% 	    		\item<3-> large waters \\ (\textgreater10km\textsuperscript{2})
-% 	    		% \item<4-> Environmental Quality Standards (EQS)
-% 	    	\end{itemize}
-% 	\end{columns}
-% \end{frame}
-% }
-
-
 \begin{frame}
 \frametitle{Goals \& Hypotheses}
 	\metroset{block=fill}
 	\begin{exampleblock}{Goal: Combine monitoring and ERA}
 		\begin{itemize}
 			\item Compile nation-wide monitoring data % (federalism)
-			\item Focus on small streams % (ERA \& Importance)
+			\item Focus on small streams
 			\item Identify risks \& influencing factors
 		\end{itemize}
 	\end{exampleblock}
@@ -392,10 +369,13 @@
 			% \item Precipitation increases concentrations
 			% \item Highest concentrations in summer
 			% % \item Mainly insecticides responsible for risks
-			\item Agriculture
-			\item Stream size
-			\item Precipitation
-			\item Annual dynamics
+			\item Agriculture:~~~~~\textbf{\Large\textuparrow}~~~~~~~~~~Risk: \textbf{\Large\textuparrow}
+			\pause
+			\item Stream size:~~~~\textbf{\Large\textdownarrow}~~~~~~~~~~Risk: \textbf{\Large\textuparrow}
+			\pause
+			\item Precipitation:~~\textbf{\Large\textuparrow}~~~~~~~~~~Risk: \textbf{\Large\textuparrow}
+			\pause
+			\item Annual dynamics~-~Summer: \textbf{\Large\textuparrow}
 		\end{enumerate}
 	\end{exampleblock}
 \end{frame}
@@ -423,7 +403,7 @@
 		\pause
 		\item Predictors
 		    \begin{itemize}
-				\item Catchment Size 
+				\item Catchment size 
 				\item Agricultural land use
 				\item Precipitation
 			\end{itemize}
@@ -434,31 +414,29 @@
 \begin{frame}
 \frametitle{Compiled data: Big, but inhomogeneous}
 	\begin{columns}
-	    \column{.49\textwidth}
+	    \column{.45\textwidth}
 	    	\begin{itemize}
-	    		\item 1,766,104 measurements 
-	    		\item 478 pesticides 
-	    		\item 24,743 samples 
-	    		\item 2,301 sites
+	    		\item \textasciitilde~1.8M measurements 
+	    		\item \textasciitilde~500 pesticides 
+	    		\item \textasciitilde~25,000 samples 
+	    		\item \textasciitilde~2,300 sites
 	    	\end{itemize}
-	    \column{.49\textwidth}
-	    	\includegraphics[width = 1.1\textwidth]{figs/map_phch.pdf}
+	    \column{.55\textwidth}
+	    	\vspace*{5mm}
+	    	\hspace*{-10mm}\includegraphics[width = 1.4\textwidth]{figs/map_phch.pdf}
 	 \end{columns}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Monitoring: Small streams are underrepresented}
-	\includegraphics[width = 0.8\textwidth]{figs/distribution.pdf}
+	\includegraphics[width = 0.85\textwidth]{figs/distribution.pdf}
 \end{frame}
 
 
 
 \begin{frame}
 \frametitle{Landscape: Factors influencing risk}
-	\begin{itemize}
-		\item 25\% of sites with at least one concentration > RAC
-	\end{itemize}
 	\includegraphics[width = 1\textwidth]{figs/agri_size_eff.pdf}
 \end{frame}
 
@@ -466,8 +444,13 @@
 \frametitle{Sampling: Factors influencing risk}
 	\begin{columns}
 	    \column{.49\textwidth}
-			\resizebox{1.1\textwidth}{!}{%
-				\input{figs/tikz/p_season.tikz}}
+			\resizebox{1.2\textwidth}{!}{%
+				\begingroup
+				\footnotesize % = 10pt in 12pt default
+					\hspace*{-10mm}\input{figs/tikz/p_season.tikz}
+				\endgroup
+				}
+
 	    \column{.51\textwidth}
 	    	\begin{itemize}
 	    		\item Peak in summer
@@ -481,7 +464,10 @@
 
 \begin{frame}
 \frametitle{Risks: Compounds exceeding risk thresholds}
-	\includegraphics[width = 0.8\textwidth]{figs/compounds.pdf}
+    \begin{itemize}
+		\item 25\% of sites with at least one concentration > RAC
+	\end{itemize}
+	\includegraphics[width = 0.75\textwidth]{figs/compounds.pdf}
 \end{frame}
 
 
@@ -509,9 +495,10 @@
 \footnotesize % = 10pt in 12pt default
 \begin{frame}[noframenumbering]
 \frametitle{Solutions for Data Handling in ERA}
- \resizebox{11.5cm}{!}{%
-				\input{figs/tikz/overview_chp34.tikz}
-				}
+    \vspace*{0mm}
+	\resizebox{1.02\textwidth}{!}{
+		\hspace*{-20mm}\input{figs/tikz/overview_chp34.tikz}
+	}
 \end{frame}
 \endgroup
 
@@ -525,7 +512,7 @@
 	\textbf{\alert{\underline{Names}}}
 	\begin{columns}[t]
 	\column{.45\textwidth}
-	\emph{Osmia rufa, Osmia bicornis, Osmia ruffa, Osmia unilandauis} 
+	\emph{Osmia rufa, Osmia bicornis, Osmia ruffa, Osmia xxxxx} 
 	\column{.45\textwidth}
 	Chlorpyrifos, Chlorpyriphos, Chlorphyrifos, Chlorpypifot
 	\end{columns}
@@ -557,9 +544,9 @@
 	\column{.45\textwidth}
 	NCBI, ITIS, EOL, ... 
 	\column{.45\textwidth}
-	2921-88-2, Clc1c(OP(=S)[...], InChI=1S/C9H11C[...], SBPBAQFW[...], CSID,...
+	2921-88-2, SMILES, InChI, ...
 	\end{columns}
-	\vspace{0.8em}
+	% \vspace{0.5em}
 	\pause
 
 	\rule{\textwidth}{1pt}
@@ -578,40 +565,45 @@
 
 
 
-{%
-\setbeamertemplate{frame footer}{Münch et al. (2016). DoOR 2.0 - Comprehensive Mapping of Drosophila melanogaster Odorant Responses. Scientific Reports 6, 21841
-}
-\begingroup
-\footnotesize % = 10pt in 12pt default
+
 \begin{frame}{}
 \frametitle{Instead of wasting time...}
-... use \alert{webchem}! \\	\vspace*{-0.5cm}
+... use \alert{\textbf{webchem}}! \\	
+	\vspace*{-0.5cm}
 	\hspace*{2cm}
 		\begin{adjustbox}{max totalsize={1.1\textwidth}{0.9\textheight}}
+		\begingroup
+		\footnotesize % = 10pt in 12pt default
 					\input{figs/tikz/webchem.tikz}
-		\end{adjustbox}
-\pause
-\vspace*{-1cm}\emph{''\alert{webchem} ...likely saved hundreds of working hours''}
-\end{frame}
-\endgroup
-}
-
-
-{%
-\setbeamertemplate{frame footer}{Dr. Susan E. Johnston, University of Edinburgh. On twitter.
+		\endgroup
+		\end{adjustbox} \\
+	\Put(0, 375){
+		\includegraphics[width=0.17\textwidth]{figs/Rlogo.png}
 	}
+\\
+\only<2->{
+\vspace*{-1cm}\emph{''\alert{\textbf{webchem}} ...likely saved hundreds of working hours''} \\[5mm]
+\tiny Münch et al. (2016). DoOR 2.0 - Comprehensive Mapping of Drosophila melanogaster Odorant Responses. Scientific Reports 6, 21841
+}
+\end{frame}
+
+
+
 \begin{frame}
 \frametitle{Instead of wasting time...}
-	... use \alert{taxize!} \\
-		\hspace*{-2cm}
-		\begin{center}
-		\includegraphics[height=0.6\textheight]{figs/sources_taxize.png}
-		\end{center}
-
+	... use \alert{\textbf{taxize}}! \\
+	\begin{center}
+		\hspace*{1.5cm}\includegraphics[height=0.6\textheight]{figs/sources_taxize.png}
+	\end{center}
+	\Put(0, 306){
+		\includegraphics[width=0.17\textwidth]{figs/Rlogo.png}
+	}
 	\pause
-	\emph{''Days of searching done during my morning coffee. Amazing. \alert{taxize}.''}
+	\Put(20,60){
+		\fcolorbox{myalert}{myalert}{\includegraphics[width=0.7\textwidth]{figs/taxize_twitter.png}}
+	}
 \end{frame}
-}
+
 
 
 % \begin{frame}
@@ -633,9 +625,10 @@
 \footnotesize % = 10pt in 12pt default
 \begin{frame}
 \frametitle{Recap: What did I look at?}
- \resizebox{11.5cm}{!}{%
-				\input{figs/tikz/overview_recap.tikz}
-				}
+    \vspace*{2mm}
+	\resizebox{1.1\textwidth}{!}{
+		\hspace*{-20mm}\input{figs/tikz/overview_recap.tikz}
+	}
 \end{frame}
 \endgroup
 
@@ -765,6 +758,19 @@
 	\end{description}
 	\includegraphics[width=1.1\textwidth]{figs/zaga_mods.pdf}
 \end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Model Performance}
+	\begin{columns}[T]
+	\column{.5\textwidth}
+		\includegraphics[width =1.1\textwidth]{figs/logliks.pdf}
+	\column{.5\textwidth}
+		\includegraphics[width =1.1\textwidth]{figs/pftdvsobs.pdf}
+	\end{columns}
+\end{frame}
+
 
 
 \begin{frame}

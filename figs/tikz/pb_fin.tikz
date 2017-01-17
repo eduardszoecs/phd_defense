@@ -1,3 +1,4 @@
+% -*- root: ../../talk.tex -*-
 
 % overlays etc in tikz
 \tikzset{
@@ -38,6 +39,6 @@
 \node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (354.75, 18.58) {7};
 \node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  2.50] at (398.55, 18.58) {8};
  \node[text=myalert,anchor=base,inner sep=0pt, outer sep=0pt, scale=  4, font=\bf\Huge, rotate=20,
-visible on=<2->] at (218, 210) {Normal?};
+visible on=<2->] at (250, 150) {Normal?};
 \end{scope}
 \end{tikzpicture}
