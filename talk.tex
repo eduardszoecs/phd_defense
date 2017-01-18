@@ -319,10 +319,10 @@
 \begin{frame}
 \frametitle{Where are we today?}
 	\includegraphics[width=\textwidth]{figs/tikz/glm_hist/warton_2016.png}
+	\pause
 	\vspace*{-5mm}
 	\metroset{block=fill}
 	\begin{exampleblock}{State of the art}
-	\pause
 		\begin{enumerate}
 			\item Choose your model based on data properties
 			\item Fix Type I errors by resampling
@@ -465,9 +465,9 @@
 \begin{frame}
 \frametitle{Risks: Compounds exceeding risk thresholds}
     \begin{itemize}
-		\item 25\% of sites with at least one concentration > RAC
+		\item 25\% of sites with at least one RQ > 1
 	\end{itemize}
-	\includegraphics[width = 0.75\textwidth]{figs/compounds.pdf}
+	\includegraphics[width = 1\textwidth]{figs/compounds.pdf}
 \end{frame}
 
 
@@ -569,7 +569,7 @@
 \begin{frame}{}
 \frametitle{Instead of wasting time...}
 ... use \alert{\textbf{webchem}}! \\	
-	\vspace*{-0.5cm}
+	\vspace*{-0.6cm}
 	\hspace*{2cm}
 		\begin{adjustbox}{max totalsize={1.1\textwidth}{0.9\textheight}}
 		\begingroup
@@ -577,13 +577,16 @@
 					\input{figs/tikz/webchem.tikz}
 		\endgroup
 		\end{adjustbox} \\
-	\Put(0, 375){
+	\Put(-20, 375){
 		\includegraphics[width=0.17\textwidth]{figs/Rlogo.png}
 	}
 \\
 \only<2->{
-\vspace*{-1cm}\emph{''\alert{\textbf{webchem}} ...likely saved hundreds of working hours''} \\[5mm]
-\tiny Münch et al. (2016). DoOR 2.0 - Comprehensive Mapping of Drosophila melanogaster Odorant Responses. Scientific Reports 6, 21841
+	\begingroup
+	\footnotesize
+	\vspace*{-1.5cm}\emph{''\alert{\textbf{webchem}} ...likely saved hundreds of working hours''} \\[3mm]
+	\endgroup
+	\tiny Münch et al. (2016). DoOR 2.0 - Comprehensive Mapping of Drosophila melanogaster Odorant Responses. Scientific Reports 6, 21841
 }
 \end{frame}
 
@@ -595,7 +598,7 @@
 	\begin{center}
 		\hspace*{1.5cm}\includegraphics[height=0.6\textheight]{figs/sources_taxize.png}
 	\end{center}
-	\Put(0, 306){
+	\Put(-20, 306){
 		\includegraphics[width=0.17\textwidth]{figs/Rlogo.png}
 	}
 	\pause
@@ -703,8 +706,14 @@
 
 
 \begin{frame}
+\frametitle{Effect of number of treatments}
+	\includegraphics[width =\textwidth]{figs/p_power_trt.pdf}
+\end{frame}
+
+
+\begin{frame}
 \frametitle{Comparison with Ives...}
-	\begin{columns}
+	\begin{columns}[T]
 	    \column{.49\textwidth}
 	    	\underline{Szöcs (2015)}
 	    	\begin{itemize}
@@ -764,9 +773,9 @@
 \begin{frame}
 	\frametitle{Model Performance}
 	\begin{columns}[T]
-	\column{.5\textwidth}
+	\column{.45\textwidth}
 		\includegraphics[width =1.1\textwidth]{figs/logliks.pdf}
-	\column{.5\textwidth}
+	\column{.55\textwidth}
 		\includegraphics[width =1.1\textwidth]{figs/pftdvsobs.pdf}
 	\end{columns}
 \end{frame}
@@ -774,21 +783,28 @@
 
 
 \begin{frame}
-\frametitle{Stream size / width}
+\frametitle{Stream size - width relationship}
 	  \includegraphics[width=\textwidth]{figs/width_size.pdf}
 \end{frame}
 
-{\setbeamertemplate{frame footer}{Biggs et al. (2016). The importance of small waterbodies for biodiversity and ecosystem services: implications for policy makers. Hydrobiologia. DOI: 10.1007/s10750-016-3007-0. 
+
+{
+\setbeamertemplate{frame footer}{Biggs et al. (2016). The importance of small waterbodies for biodiversity and ecosystem services: implications for policy makers. Hydrobiologia. DOI: 10.1007/s10750-016-3007-0. 
 }
 \begin{frame}
-\frametitle{Importance of small streams}
-	\includegraphics[width=\textwidth]{figs/streams_distr.pdf}
+\frametitle{Small streams in the landscape}
+	\hspace*{-10mm}\includegraphics[width=1.1\textwidth]{figs/streams_distr.pdf}
+	\vspace*{-10mm}
+	\begingroup
+	\footnotesize
 	\begin{itemize}
 		\item Biodiversity
 		\item Refuge for re-colonisation
 	\end{itemize}
+	\endgroup
 \end{frame}
 }
+
 
 \begin{frame}
 \frametitle{Precipitation in Germany and the samples}
@@ -808,7 +824,7 @@
 	    \column{.33\textwidth}
 	    \underline{Szöcs (2016)}
 	    \begin{itemize}
-        	\item Germany
+        	\item Germany \\[1.5em]
         	\item Monitoring
         	\item Grab sampling \vspace{1.2em}
         	\item Pesticides
@@ -822,17 +838,17 @@
         	\item Publications
         	\item Grab \& Event driven sampling
         	\item Insecticides
-        	\item Organophos.+ Pyrethroids
+        	\item Organophos.+ Pyrethroids \\[1.5em]
         	\item LM for \textgreater LOQ
         \end{itemize}
 	    \column{.33\textwidth}
 	    \underline{Knauer (2016)}
 	    \begin{itemize}
-        	\item Switzerland
+        	\item Switzerland \\[1.5em]
         	\item Monitoring
         	\item Grab sampling \vspace{1.2em}
         	\item Pesticides
-        	\item Chlorpyrifos + Herb + Fung
+        	\item Chlorpyrifos + Herb + Fung \\[1.5em]
         	\item no model
         \end{itemize}
 	\end{columns}
@@ -848,9 +864,12 @@
 
 \begin{frame}
 \frametitle{RACs by Compound}
+\begingroup
+\footnotesize % = 10pt in 12pt default
 	\begin{adjustbox}{max totalsize={\textwidth}{0.95\textheight}}
 				\input{figs/tikz/ap_rac2.tikz}
 	\end{adjustbox}
+\endgroup
 \end{frame}
 
 
@@ -864,10 +883,10 @@
 \begin{frame}
 \frametitle{Mixtures are common, but one compound dominates the risk}
 	\begin{columns}
-	    \column{.59\textwidth}
+	    \column{.49\textwidth}
 	    	\vspace{0.5cm}
-	    	\includegraphics[width=\textwidth, keepaspectratio]{figs/tusum_tumax.pdf}
-	    \column{.40\textwidth}
+	    	\includegraphics[width=1.2\textwidth, keepaspectratio]{figs/tusum_tumax.pdf}
+	    \column{.49\textwidth}
 	        \begin{itemize}
 	        	\item up to 50 compounds in one sample
 	        	\item high correlation
@@ -881,12 +900,15 @@
 
 \begin{frame}
 \frametitle{Simulations are worth their work, use them \emph{a priori}!}
+\begingroup
+\footnotesize % = 10pt in 12pt default
 	Experimental design for dose-response experiments - a simulation \\
 	\url{http://edild.github.io/lc50_bias_sim/}
 		    	\includegraphics[width=0.5\textwidth, keepaspectratio]{figs/sim_drm.png} \\
 	\begin{description}
 		\item[GLM-Explorer:]{\url{http://uni-ko-ld.de/g3}}
 	\end{description}
+\endgroup
 \end{frame}
 
 
@@ -949,6 +971,8 @@
 	    \column{.49\textwidth}
 	    	    	\includegraphics[width=\textwidth, keepaspectratio]{figs/mzb_map.png}
 	    \column{.49\textwidth}
+	    \begingroup
+		\footnotesize % = 10pt in 12pt default
 	        \begin{itemize}
 	        	\item biological data with good spatial coverage
 	        	\item 60\% of spatial congruence 
@@ -956,18 +980,23 @@
 	        	\item Some work left...
 	        	\item Future....
 	        \end{itemize}
+	       \endgroup
 	\end{columns}
 
 \end{frame}
 
+
 {%
-\setbeamertemplate{frame footer}{Source code to retrieve data and reproduce results: \url{http://uni-ko-ld.de/g7}
+\setbeamertemplate{frame footer}{\footnotesize Source code to retrieve data and reproduce results: \url{http://uni-ko-ld.de/g7}
 	}
 \begin{frame}
 \frametitle{A global perspective (I)}
+\begingroup
+\footnotesize % = 10pt in 12pt default
 	\begin{adjustbox}{max totalsize={\textwidth}{0.92\textheight}}
 				\input{figs/tikz/ap_pers.tikz}
 	\end{adjustbox}
+\endgroup
 % show world bank data.
 % agriculture will be intensified (=more needs for pesticides)
 % pop growth can (and must be) reduced, by reducing child mortality (more vaccination, health care... = wealth)
@@ -1017,7 +1046,7 @@ Best practices for Software:
 \begin{frame}
 \frametitle{Many Thanks To}
 	\begin{itemize}
-		\item My supervisor \alert{Prof. Dr. Ralf. B. Schäfer} (for his support, openness, opportunities \& discussions)
+		\item My supervisor \alert{Prof. Dr. Ralf. B. Schäfer} (for support, openness, opportunities \& discussions)
 		\item My \alert{colleagues \& collaborators} (to many to list here)
 		\item \alert{{G}erman Environment Agency} (for funding \& collab)
 		\item My parents \alert{Anca \& Helmut} (for their support)

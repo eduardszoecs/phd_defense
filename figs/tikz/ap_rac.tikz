@@ -1,3 +1,5 @@
+% -*- root: ../../talk.tex -*-
+
 % Created by tikzDevice version 0.10.1 on 2016-12-09 10:11:42
 % !TEX encoding = UTF-8 Unicode
 \begin{tikzpicture}[x=1pt,y=1pt]
@@ -393,19 +395,19 @@
 \path[clip] (  0.00,  0.00) rectangle (505.89,361.35);
 \definecolor{drawColor}{gray}{0.30}
 
-\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.12] at (146.69, 26.97) {\bfseries fungicides};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.12] at (146.69, 26.97) {\bfseries Fungicides};
 
-\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.12] at (244.52, 26.97) {\bfseries herbicides};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.12] at (244.52, 26.97) {\bfseries Herbicides};
 
-\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.12] at (342.36, 26.97) {\bfseries insecticides};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.12] at (342.36, 26.97) {\bfseries Insecticides};
 
-\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.12] at (440.19, 26.97) {\bfseries other};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.12] at (440.19, 26.97) {\bfseries Other};
 \end{scope}
 \begin{scope}
 \path[clip] (  0.00,  0.00) rectangle (505.89,361.35);
 \definecolor{drawColor}{RGB}{0,0,0}
 
-\node[text=drawColor,rotate= 90.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.68] at ( 22.62,186.72) {RAC [ug/L]};
+\node[text=drawColor,rotate= 90.00,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.68] at ( 22.62,186.72) {RAC [$\mu$g/L]};
 \end{scope}
 \begin{scope}
 \path[clip] (  0.00,  0.00) rectangle (505.89,361.35);

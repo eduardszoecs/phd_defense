@@ -7,6 +7,7 @@ if(!exists("prj")){
 
 n_labeller <- function(string){
   value <- paste0('n = ', string)
+  value
 }
 
 require(tikzDevice)
@@ -18,24 +19,33 @@ require(esmisc)
 
 # Plot one simulation -----------------------------------------------------
 
-dat <- dosim2(N = 5, pC = 0.90, pE = 0.45, nsim = 100, n_animals = 5)
+dat <- dosim1(N = 6, 
+              mu = c(rep(32, each = 2), rep(16, each = 4)), 
+              theta = rep(4, 6))
 plot(dat$x, dat$y[,1])
 
 pdat <- data.frame(x = dat$x, y = dat$y[,1])
 pdat
 
-p_sim <- ggplot(pdat, aes(x = x, y = y)) + 
-  geom_count() +
+mudat <- data.frame(x = 1:6, y = c(rep(32, each = 2), rep(16, each = 4)))
+
+
+
+p_sim <- ggplot(data = pdat, aes(x = x, y = y)) + 
+  geom_boxplot(width = 0.5) + 
+  geom_point(size = 2) +
+  geom_line(data = mudat[mudat$x < 3, ], aes(x = x, y = y), size = 1, col = 'red') +
+  geom_line(data = mudat[mudat$x > 2, ], aes(x = x, y = y), size = 1, col = 'red') +
   theme_edi() +
-  labs(y = 'Number of surviving animals\n(out of 5)', 
+  labs(y = 'Abundance', 
        x = 'Treatment') +
-  ggtitle('Binomial data', 
-          subtitle = 'n = 5, p(Control,T1) = 0.9, p(T2-T6) = 0.45')
+  ggtitle('Count data') +
+  scale_x_discrete(labels = c('Control', 'C1', 'C2', 'C3', 'C4', 'C5')) 
 p_sim
 
 
-ggsave(plot = p_sim, filename = file.path(tikzp, 'p_sim.tikz'), device = tikz,
-       width = 6, height = 5)
+ggsave(plot = p_sim, filename = file.path(figp, 'p_sim_raw.svg'),
+       width = 7, height = 6)
 
 ### ----------------------------------------------------------------------------
 ### Results -  Count data
@@ -240,16 +250,16 @@ p_pow_xkcd <- ggplot(pow_glob_c) +
   labs(x = expression('Effect size'),
        y = 'Power') +
   scale_y_continuous(breaks = c(0, 0.3, 0.8, 1), labels = c('0', '30', '80', '100')) +
-  scale_x_continuous(breaks = c(1.5, 6.5), labels = c('small', 'big')) +
+  scale_x_continuous(breaks = c(1.5, 6.5), labels = c('small \n2 : 1', 'big \n128 : 64')) +
   scale_color_manual('Model',
                      breaks = c("lm", "glm_nb", "glm_pb", "glm_qp", "np"),
                      values = c('#242F95', '#D8201B', '#D8821B', '#D8AF1B', '#139951'), 
-                     labels = c("Normal", "Negative binomial", "Bootstrap", "Quasi Poisson", "Non parametric")
+                     labels = c("Normal", "Negative binomial", "Neg. Bin. Bootstrap", "Quasi Poisson", "Non parametric")
   ) +
   # decoration
   xkcdman(mapping, dataman) +
-  geom_text(data = data.frame(x = 5.7, y = 0.55, N = 9, label = "Lo and behold!"),
-            aes(x = x,y = y,label = label), size = 6,
+  geom_text(data = data.frame(x = 4.9, y = 0.54, N = 9, label = "That was hypothesized!"),
+            aes(x = x,y = y,label = label), size = 8,
             show.legend = F, family = "xkcd") +
   xkcdline(mapping = aes(xbegin = xb, ybegin = yb, xend = xe, yend = ye),
            data = data.frame(xb = 5.2, xe = 6, yb = 0.45, ye = 0.5, N = 9),
@@ -262,7 +272,8 @@ p_pow_xkcd <- ggplot(pow_glob_c) +
         legend.text = element_text(size = 22),
         axis.text = element_text(size = 22, color = 'grey50'),
         axis.title = element_text(size = 25,face = "bold"),
-        strip.text.x = element_text(size = 25))
+        strip.text.x = element_text(size = 25)) +
+  guides(col = guide_legend(keyheight = 0.3, default.unit = "inch"))
 p_pow_xkcd
 ggsave(file.path(figp, 'p_pow_xkcd.pdf'), plot = p_pow_xkcd, 
        height = 10, width = 14)
@@ -287,9 +298,10 @@ mapping <- aes(x = x,
                anglerightleg =  anglerightleg,
                angleleftleg = angleleftleg,
                angleofneck = angleofneck)
-dataman <- data.frame(x = 6, y = 0.105, 
+dataman <- data.frame(x = 6, 
+                      y = 0.10, 
                       N = 3,
-                      scale = 0.02,
+                      scale = 0.015,
                       ratioxy = ratioxy,
                       angleofspine = -pi/2 ,
                       anglerighthumerus = pi/6,
@@ -309,24 +321,24 @@ p_t1_xkcd <- ggplot(t1_glob_c) +
   facet_grid( ~N, labeller = labeller(N = n_labeller)) + 
   geom_hline(aes(yintercept = 0.05), linetype = 'dotted') +
   # axes
-  scale_x_continuous(breaks = c(1.5, 6.5), labels = c('small', 'big')) +
+  scale_x_continuous(breaks = c(1.5, 6.5), labels = c('small \n2 : 1', 'big \n128 : 64')) +
   scale_y_continuous(breaks = c(0.01, 0.05, 0.15), limits = c(0.005, 0.16)) +
   labs(x = expression('Effect size'),
        y = 'Type I Error rate') +
   scale_color_manual('Model',
-         breaks = c("lm", "glm_nb", "glm_pb", "glm_qp", "np"),
-         values = c('#242F95', '#D8201B', '#D8821B', '#D8AF1B', '#139951'), 
-         labels = c("Normal", "Negative binomial", "Bootstrap", "Quasi Poisson", "Non parametric")
-         ) +
+                     breaks = c("lm", "glm_nb", "glm_pb", "glm_qp", "np"),
+                     values = c('#242F95', '#D8201B', '#D8821B', '#D8AF1B', '#139951'), 
+                     labels = c("Normal", "Negative binomial", "Neg. Bin. Bootstrap", "Quasi Poisson", "Non parametric")
+  ) +
   # xkcd 
   xkcdman(mapping, dataman) +
-  geom_text(data = data.frame(x = 5.5, y = 0.126, N = 3, 
-                              label = "That was not expected..."),
-            aes(x = x,y = y,label = label), size = 5,
+  geom_text(data = data.frame(x = 5.1, y = 0.115, N = 3, 
+                              label = "This was not expected..."),
+            aes(x = x,y = y,label = label), size = 7,
             show.legend = F, family = "xkcd") +
   xkcdline(mapping = aes(xbegin = xb, ybegin = yb, xend = xe, yend = ye),
-           data = data.frame(xb = 5.4, xe = 5.2, yb = 0.115, ye = 0.123, N = 3),
-           xjitteramount = 0.4) +
+           data = data.frame(xb = 5.4, xe = 5.1, yb = 0.105, ye = 0.11, N = 3),
+           xjitteramount = 0.2) +
   theme_xkcd() +
   xkcdaxis(c(1,7), c(0.01, 0.16)) +
   theme(legend.justification = c(1,1),
@@ -335,7 +347,8 @@ p_t1_xkcd <- ggplot(t1_glob_c) +
         legend.text = element_text(size = 22),
         axis.text = element_text(size = 22, color = 'grey50'),
         axis.title = element_text(size = 25, face = "bold"),
-        strip.text.x = element_text(size = 25))
+        strip.text.x = element_text(size = 25)) +
+  guides(col = guide_legend(keyheight = 0.3, default.unit = "inch"))
 p_t1_xkcd
 ggsave(file.path(figp, 'p_t1_xkcd.pdf'), plot = p_t1_xkcd, 
        height = 10, width = 14)

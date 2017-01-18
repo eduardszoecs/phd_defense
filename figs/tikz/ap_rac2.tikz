@@ -1,3 +1,5 @@
+% -*- root: ../../talk.tex -*-
+
 % Created by tikzDevice version 0.10.1 on 2016-12-09 10:15:06
 % !TEX encoding = UTF-8 Unicode
 \begin{tikzpicture}[x=1pt,y=1pt]
@@ -215,9 +217,9 @@
 
 \node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98, 79.44) {\bfseries Chlorantraniliprole};
 
-\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98, 90.20) {\bfseries Fluroxypyr‐MHE};
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98, 90.20) {\bfseries Fluroxypyr-MHE};
 
-\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98,100.96) {\bfseries Carfentrazone‐ethyl};
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98,100.96) {\bfseries Carfentrazone-ethyl};
 
 \node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98,111.72) {\bfseries Fluazinam};
 
@@ -249,7 +251,7 @@
 
 \node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98,262.37) {\bfseries Picolinafen};
 
-\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98,273.13) {\bfseries tau‐Fluvalinat};
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98,273.13) {\bfseries tau-Fluvalinat};
 
 \node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.12] at (159.98,283.89) {\bfseries Dimoxystrobin};
 

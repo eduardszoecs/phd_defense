@@ -115,7 +115,7 @@
 		font=\normalsize, 
 		anchor = west]{\textbf{RAC:}~~Regulatory Acceptable Concentration};	
 	\node[name = RACabbrv, 
-		below = 0mm of PECabbrv, xshift = -2mm, 
+		below = 0mm of PECabbrv, xshift = 2mm, 
 		font=\normalsize, 
 		anchor = north]{\textbf{PEC:}~~Predicted Environmental Concentration};
 
