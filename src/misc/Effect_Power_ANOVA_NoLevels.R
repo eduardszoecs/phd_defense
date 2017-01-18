@@ -8,7 +8,7 @@ sim <- function(n_groups = 3,
                 sigma = 1){
   df <- expand.grid(trt = factor(seq_len(n_groups)), 
                     rep = seq_len(n_rep))
-  betas <- c(rep(m, n_groups-1), r)
+  betas <- c(rep(m, n_groups - 1), r)
   
   # linear predictor
   X <- model.matrix(~0+trt, data = df)

@@ -273,7 +273,8 @@ p_pow_xkcd <- ggplot(pow_glob_c) +
         axis.text = element_text(size = 22, color = 'grey50'),
         axis.title = element_text(size = 25,face = "bold"),
         strip.text.x = element_text(size = 25)) +
-  guides(col = guide_legend(keyheight = 0.3, default.unit = "inch"))
+  guides(col = guide_legend(keyheight = 0.3, default.unit = "inch", 
+                            override.aes = list(size = 4)))
 p_pow_xkcd
 ggsave(file.path(figp, 'p_pow_xkcd.pdf'), plot = p_pow_xkcd, 
        height = 10, width = 14)
@@ -348,7 +349,8 @@ p_t1_xkcd <- ggplot(t1_glob_c) +
         axis.text = element_text(size = 22, color = 'grey50'),
         axis.title = element_text(size = 25, face = "bold"),
         strip.text.x = element_text(size = 25)) +
-  guides(col = guide_legend(keyheight = 0.3, default.unit = "inch"))
+  guides(col = guide_legend(keyheight = 0.3, default.unit = "inch",
+                            override.aes = list(size = 5)))
 p_t1_xkcd
 ggsave(file.path(figp, 'p_t1_xkcd.pdf'), plot = p_t1_xkcd, 
        height = 10, width = 14)

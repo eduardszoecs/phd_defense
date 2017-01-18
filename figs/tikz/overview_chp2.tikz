@@ -30,10 +30,10 @@
 % clip figure
 \clip(-1.5, -10.5) rectangle (21.0, 3.5);
 
-% % % % % grid for coordinates for clip
-\draw[help lines,xstep=1,ystep=1] (-2,-13) grid (30,6.5);
-\foreach \x in {-2,-1,...,30} { \node [anchor=north] at (\x,0) {\x}; }
-\foreach \y in {-13,-12,...,6} { \node [anchor=east] at (0,\y) {\y}; }
+% % % % % % grid for coordinates for clip
+% \draw[help lines,xstep=1,ystep=1] (-2,-13) grid (30,6.5);
+% \foreach \x in {-2,-1,...,30} { \node [anchor=north] at (\x,0) {\x}; }
+% \foreach \y in {-13,-12,...,6} { \node [anchor=east] at (0,\y) {\y}; }
 
 
 % Nodes
