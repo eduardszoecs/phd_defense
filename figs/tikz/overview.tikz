@@ -191,10 +191,10 @@
 		below left = 30mm and -2mm of expo, 
 		font=\normalsize, 
 		anchor = west,
-		visible on=<3->]{\textbf{RAC:}~~Regulatory Acceptable Concentration};	
+		visible on=<4->]{\textbf{RAC:}~~Regulatory Acceptable Concentration};	
 	\node[name = RACabbrv, 
 		below = 0mm of PECabbrv, xshift = 2mm, 
 		font=\normalsize, 
 		anchor = north,
-		visible on=<4->]{\textbf{PEC:}~~Predicted Environmental Concentration};	
+		visible on=<3->]{\textbf{PEC:}~~Predicted Environmental Concentration};	
 \end{tikzpicture}

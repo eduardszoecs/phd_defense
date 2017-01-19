@@ -243,7 +243,7 @@
 		\item<4-> transform?
 		\item<5-> non-parametric?
 		\only<6>{\item Generalised Linear Model (GLM)?}
-		\only<7->{\item<ale@2-> \alert{Generalised Linear Model (GLM)?}}
+		% \only<7->{\item<ale@2-> \alert{Generalised Linear Model (GLM)?}}
 	\end{itemize}
 
 \end{frame}
@@ -256,33 +256,61 @@
 % \end{frame}
 
 
-\begin{frame}
-\frametitle{Discussion on GLM + GLM short intro}
-	% \input{figs/tikz/glm_timeline.tikz}
-	% o'hara, Warton, discussionon GLM vs LM
-	% but also for ecotoxicological experiments?
+\begin{frame}[t]
+\frametitle{GLMs may have better properties}
+\begin{tabular}{llll}
+\textbf{Model} & \textbf{Observations} & \textbf{Predictors} & \textbf{Link} \\ \hline
+LM & Y \textasciitilde~N(μ, R) & η =Xβ & η = μ \\ \pause
+\alert{GLM} & Y \textasciitilde~\alert{G}(μ, R) & η =Xβ & η = \alert{g(}μ\alert{)} \\ 
+% LMM & Y|b \textasciitilde~N(μ, R) & η =Xβ + Zb , b \textasciitilde~N(0, G) & η = μ \\ 
+% GLMM & Y|b \textasciitilde~G(μ, R) & η =Xβ + Zb , b \textasciitilde~N(0, G) & η = g(μ) \\ 
+\end{tabular}
+\vspace*{0.5em}
+\pause
+\setlength{\fboxsep}{1pt}
+\fcolorbox{myalert}{myalert}{\includegraphics[width=\textwidth]{figs/tikz/glm_hist/ohara_2010.png}} \\[0.5em]
+\fcolorbox{myalert}{myalert}{\includegraphics[width=\textwidth]{figs/tikz/glm_hist/warton_2011.png}}
+
 \end{frame}
 
 
 \begin{frame}
-\frametitle{A simulation study}
-	\begin{columns}[T]
-	\column{.49\textwidth}
-		\includegraphics[width=\textwidth]{figs/daphnia1.png}\\
-		\vspace{2em}
-		Simulation: 
-		\begin{itemize}
-			\item Count \& Binomial data
-			\item Vary replicates \& effect sizes
-			\item LM, GLMs, Non-parametric
-			\item Power \& Type I Error
-		\end{itemize}
-	\column{.49\textwidth}
-		\begin{adjustbox}{max totalsize={\textwidth}{\textheight}}
-					\input{figs/tikz/p_sim.tikz}
-		\end{adjustbox}
-	\end{columns}
+\frametitle{GLMs in Ecotoxicology?}
+\only<1-2>{
+	\includegraphics[width=\textwidth]{figs/oecd_2006.png}\\
+}
+\only<2>{
+	\Put(-17, 160){\alert{\Large\textbf{"GLMs are not discussed in this document"}}}
+	}
+
+\onslide<3-4>{
+	\includegraphics[width=0.8\textwidth]{figs/quant_ecotox.jpg}\\
+}
+\only<4>{
+	\alert{\Huge\textbf{"No reference to GLM!"}}
+	}
 \end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Method: Simulations}
+
+	\only<1>{\includegraphics[width=\textwidth]{figs/power/power_methods_1.pdf}}
+	\only<2>{\includegraphics[width=\textwidth]{figs/power/power_methods_2.pdf}}
+	\only<3-4>{\includegraphics[width=\textwidth]{figs/power/power_methods_3.pdf}}
+	\only<5>{\includegraphics[width=\textwidth]{figs/power/power_methods_4.pdf}}
+	\only<6>{\includegraphics[width=\textwidth]{figs/power/power_methods_5.pdf}}
+	\only<7>{\includegraphics[width=\textwidth]{figs/power/power_methods_all.pdf}}
+
+	\setlength{\fboxsep}{1pt}
+	\only<4-5>{\Put(-30, 200){
+		\fcolorbox{myalert}{myalert}{\includegraphics[width=0.55\textwidth]{figs/p_sim_fin.pdf}}
+	}}
+	\only<6->{\Put(-30, 166.5){
+		\fcolorbox{myalert}{myalert}{\includegraphics[width=0.55\textwidth]{figs/p_sim_fin.pdf}}
+	}}
+\end{frame}
+
 
 
 
@@ -667,24 +695,27 @@
 
 %%% ---------------------------------------------------------------------------
 %%% Final slide
+
 \begin{frame}[standout]
 	\frametitle{}
 
 	\vspace{1em}
-	\Huge{Statistical Ecotoxicology} \\[0.3em]
-	\large{Improving the Utilisation of Data for \\ Environmental Risk Assessment} \\[1em]
+	\Large{Statistical Ecotoxicology} \\[0.3em]
+	\normalsize{Improving the Utilisation of Data for \\ Environmental Risk Assessment} \\[1em]
 
-	\normalsize
+	\footnotesize
 	Eduard Szöcs \\[3em]
-
+\begin{flushleft}
 	\faLaptop~~~\textbf{\href{http://edild.github.io/}{http://edild.github.io/ }}\\[.5em]
 	\faTwitter~~~\textbf{\href{http://twitter.com/EduardSzoecs}{@EduardSzoecs}} 	\\[0.5em]
 	\faFilePowerpointO~~~\textbf{\href{https://github.com/edild/phd_defense}{https://github.com/edild/phd\_defense}}\\[0.5em]
 	\faBook~~~\textbf{\href{https://github.com/edild/phd_thesis}{https://github.com/edild/phd\_thesis}}\\[3em]
+\end{flushleft}
 
 	\begin{center}\ccbysa\end{center} 
-
 \end{frame}
+
+
 
 
 \appendix
@@ -1048,7 +1079,7 @@ Best practices for Software:
 \frametitle{Many Thanks To}
 	\begin{itemize}
 		\item My supervisor \alert{Prof. Dr. Ralf. B. Schäfer} (for support, openness, opportunities \& discussions)
-		\item My \alert{colleagues \& collaborators} (to many to list here)
+		\item My \alert{colleagues \& collaborators} (too many to list here)
 		\item \alert{{G}erman Environment Agency} (for funding \& collab)
 		\item My parents \alert{Anca \& Helmut} (for their support)
 		\item My girlfriend \alert{Anja} (for everything)
