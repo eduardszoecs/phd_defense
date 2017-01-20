@@ -31,18 +31,19 @@ lpi_plot <- ggplot(lpi) +
   theme(panel.grid.major = element_blank(),
         legend.position = 'bottom') +
   ylim(c(0, 1.5)) +
-  scale_color_manual('Habitat', 
-                     values = c('steelblue', 'blue', "green4"),
+  scale_color_manual('System', 
+                     values = c('steelblue', 'blue4', "green4"),
                      breaks = c("terrestric", "marine", "freshwater")) +
-  ggtitle('Living Planet Index')
+  ggtitle('Living Planet Index') +
+  guides(col = guide_legend(override.aes = list(size = 4)))
 lpi_plot
 
 ggsave('/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/tikz/lpi.tikz',
        lpi_plot, 
        device = tikz,
-       width = 5)
+       width = 7)
 
-ggsave('/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/src/lpi/lpi_2016.pdf',
+ggsave('/home/edisz/Documents/work/research/projects/2016/1PHD/phd_defense/figs/lpi_2016.pdf',
        lpi_plot, 
        width = 7, height = 5)
 

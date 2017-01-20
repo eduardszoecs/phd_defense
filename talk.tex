@@ -121,9 +121,10 @@
 			% 			\hspace{-5mm}\input{figs/tikz/lpi.tikz}
 			% 			}
 
-			\hspace{-7mm}\begin{adjustbox}{max totalsize={1.1\textwidth}{\textheight}}
-				\input{figs/tikz/lpi.tikz}
-			\end{adjustbox}
+			% \hspace{-7mm}\begin{adjustbox}{max totalsize={1.1\textwidth}{\textheight}}
+			% 	\input{figs/tikz/lpi.tikz}
+			% \end{adjustbox}
+			\hspace{-7mm}\includegraphics[width=1.1\textwidth]{figs/lpi_2016.pdf}
 		}
 	\column{.37\textwidth}
 		\onslide<2->{
@@ -173,7 +174,7 @@
 \section{Improving Statistics in ERA}
 
 {%
-\setbeamertemplate{frame footer}{Source: \url{www.umweltbundesamt.de} (modified)
+\setbeamertemplate{frame footer}{Source: www.umweltbundesamt.de (modified)
 }
 \begin{frame}
 \frametitle{Experiments in Effect Assessment}
@@ -209,8 +210,8 @@
 
 \begin{frame}
 \frametitle{Ecotoxicology is not normal}
-
-\begin{columns}[T]
+\vspace*{-7mm}
+	\begin{columns}[T]
 	\column{.49\textwidth}
 		\center
 		\begin{adjustbox}{max totalsize={0.7\textwidth}{\textheight}}
@@ -243,7 +244,7 @@
 		\item<4-> transform?
 		\item<5-> non-parametric?
 		\only<6>{\item Generalised Linear Model (GLM)?}
-		% \only<7->{\item<ale@2-> \alert{Generalised Linear Model (GLM)?}}
+		\onslide<7->{\item<ale@2-> \alert{Generalised Linear Model (GLM)?}}
 	\end{itemize}
 
 \end{frame}
@@ -270,24 +271,26 @@ LM & Y \textasciitilde~N(μ, R) & η =Xβ & η = μ \\ \pause
 \setlength{\fboxsep}{1pt}
 \fcolorbox{myalert}{myalert}{\includegraphics[width=\textwidth]{figs/tikz/glm_hist/ohara_2010.png}} \\[0.5em]
 \fcolorbox{myalert}{myalert}{\includegraphics[width=\textwidth]{figs/tikz/glm_hist/warton_2011.png}}
-
 \end{frame}
 
 
 \begin{frame}
 \frametitle{GLMs in Ecotoxicology?}
-\only<1-2>{
-	\includegraphics[width=\textwidth]{figs/oecd_2006.png}\\
-}
-\only<2>{
-	\Put(-17, 160){\alert{\Large\textbf{"GLMs are not discussed in this document"}}}
+	\setlength{\fboxsep}{1pt}
+	\only<1-2>{
+		\fcolorbox{gray}{gray}{\includegraphics[width=\textwidth]{figs/oecd_2006.png}}\\
 	}
-
-\onslide<3-4>{
-	\includegraphics[width=0.8\textwidth]{figs/quant_ecotox.jpg}\\
-}
-\only<4>{
-	\alert{\Huge\textbf{"No reference to GLM!"}}
+	\only<2>{
+		\Put(25, 290){\alert{\Huge\textbf{"GLMs are not discussed}}}
+		}
+	\only<2>{
+		\Put(30, 240){\alert{\Huge\textbf{in this document."}}}
+		}
+	\onslide<4>{
+		\alert{\Huge\textbf{No reference to GLM.}}
+		}
+	\onslide<3-4>{
+		\includegraphics[width=0.8\textwidth]{figs/quant_ecotox.jpg}\\
 	}
 \end{frame}
 
@@ -385,6 +388,7 @@ LM & Y \textasciitilde~N(μ, R) & η =Xβ & η = μ \\ \pause
 	\begin{exampleblock}{Goal: Combine monitoring and ERA}
 		\begin{itemize}
 			\item Compile nation-wide monitoring data % (federalism)
+			\item Focus on pesticides
 			\item Focus on small streams
 			\item Identify risks \& influencing factors
 		\end{itemize}
@@ -426,7 +430,7 @@ LM & Y \textasciitilde~N(μ, R) & η =Xβ & η = μ \\ \pause
 		\pause
 		\item Risk Quotient
 			\begin{itemize}
-				\item \large $RQ = \frac{C}{RAC}$
+				\item \large $RQ = \frac{c}{RAC}$
 			\end{itemize}
 		\pause
 		\item Predictors
@@ -583,10 +587,10 @@ LM & Y \textasciitilde~N(μ, R) & η =Xβ & η = μ \\ \pause
 	\begin{columns}[t]
 	\column{.45\textwidth}
 	\centering
-	2993 taxa
+	\textasciitilde 3000 taxa
 	\column{.45\textwidth}
 	\centering
-	478 pesticides
+	\textasciitilde 500 pesticides
 	\end{columns}
 \end{frame}
 % }
